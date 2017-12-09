@@ -80,19 +80,19 @@ class RandomTab extends React.Component {
 			albums:[]
 		};
 	}
-	componentWillMount(){
-		let options={
-			method:'GET',
-			headers: defaultHeaders
-		};	
-		fetch(ARTISTS_API, options)
-	    .then((res)=> res.json())
-	    .then((artists)=>this.setState({artists: artists}));
+	// componentWillMount(){
+	// 	let options={
+	// 		method:'GET',
+	// 		headers: defaultHeaders
+	// 	};	
+	// 	fetch(ARTISTS_API, options)
+	//     .then((res)=> res.json())
+	//     .then((artists)=>this.setState({artists: artists}));
 
-	    fetch(ALBUMS_API, options)
-	    .then((res)=> res.json())
-	    .then((albums)=>this.setState({albums: albums}));
-	}
+	//     fetch(ALBUMS_API, options)
+	//     .then((res)=> res.json())
+	//     .then((albums)=>this.setState({albums: albums}));
+	// }
 	renderRandomArtists(){
 		return this.state.artists.map((artist)=><RandomTabArtist key={artist.name} artist={artist}/>)
 	}
@@ -141,15 +141,15 @@ class ArtistTab extends React.Component {
 		super(props);
 		this.state = {};
 	}
-	componentWillMount(){
-		let options={
-			method:'GET',
-			headers: defaultHeaders
-		};	
-		fetch(ARTISTS_API+this.props.match.params._id, options)
-	    .then((res)=> res.json())
-	    .then((artist)=>this.setState(artist));
-	}
+	// componentWillMount(){
+	// 	let options={
+	// 		method:'GET',
+	// 		headers: defaultHeaders
+	// 	};	
+	// 	fetch(ARTISTS_API+this.props.match.params._id, options)
+	//     .then((res)=> res.json())
+	//     .then((artist)=>this.setState(artist));
+	// }
 	renderAlbums(){
 		return this.state.albums ? this.state.albums.map((album)=><ArtistTabAlbum key={album.title} album={album}/>):false;
 	}
@@ -225,15 +225,15 @@ class AlbumTab extends React.Component {
 		super(props);
 		this.state = {};
 	}
-	componentWillMount(){
-		let options={
-			method:'GET',
-			headers: defaultHeaders
-		};	
-		fetch(ALBUMS_API+this.props.match.params._id, options)
-	    .then((res)=> res.json())
-	    .then((album)=>this.setState(album));
-	}
+	// componentWillMount(){
+	// 	let options={
+	// 		method:'GET',
+	// 		headers: defaultHeaders
+	// 	};	
+	// 	fetch(ALBUMS_API+this.props.match.params._id, options)
+	//     .then((res)=> res.json())
+	//     .then((album)=>this.setState(album));
+	// }
 	renderTracks(){
 		return this.state.tracks ? this.state.tracks.map((track)=><AlbumTabTrack key={track} track={track}/>):false;
 	}
