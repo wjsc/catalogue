@@ -1,6 +1,7 @@
 {
   "name": "catalogue-client",
   "version": "0.1.0",
+  "author":"wjsc",
   "private": true,
   "dependencies": {
     "react": "^15.6.1",

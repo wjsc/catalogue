@@ -3,9 +3,11 @@ import { HashRouter, Link, Switch, Route } from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const ARTISTS_API='http://localhost:3003/artists/';
-const ALBUMS_API='http://localhost:3002/albums/';
+const STATIC_URL='http://localhost:3002/';
+const ARTISTS_API='http://localhost:3001/artists/';
+const ALBUMS_API='http://localhost:3001/albums/';
 const TRACKS_API='http://localhost:3001/tracks/';
+
 const defaultHeaders={
 					'Accept': 'application/json',
 					'Content-Type': 'application/json'
