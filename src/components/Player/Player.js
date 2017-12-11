@@ -1,4 +1,5 @@
 import React from 'react';
+import './Player.css';
 import PlayerPrev from './PlayerPrev';
 import PlayerPlayPause from './PlayerPlayPause';
 import PlayerNext from './PlayerNext';

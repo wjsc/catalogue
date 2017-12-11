@@ -1,4 +1,5 @@
 import React from 'react';
+import './FavoritesTab.css';
 import FavoritesTabTrack from './FavoritesTabTrack';
 
 class FavoritesTab extends React.Component {

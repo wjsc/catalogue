@@ -1,0 +1,105 @@
+body{
+	background-color: #121314;
+	color:white;
+	margin:0 auto;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #353535;
+  outline: 1px solid slategrey;
+}
+a{
+	color:#f7f5f5;
+	text-decoration: none;
+}
+/*SIDEBAR*/
+.sidebar{
+	position: fixed;
+	width: 90px;
+	height: 100vh;
+	left: 0;
+	background-color: #181819;
+	z-index: 3;
+	text-align: center;
+	padding-top: 30px;
+	color:#f7f5f5;
+}
+.sidebar .sidebar-element{
+	height: 63px;
+	cursor: pointer;
+}
+.sidebar .sidebar-element i{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.sidebar .sidebar-element span{
+	display: block;
+}
+.sidebar .sidebar-logout{
+	bottom: 46px;
+	position: absolute;
+	width: 90px;
+}
+.sidebar .sidebar-logout:hover{
+	text-decoration: underline;
+}
+
+.active-menu {
+  display: block;
+}
+
+.tab_panel{
+	
+}
+
+.tab{
+	position: absolute;
+	z-index: 1;
+	background-color: none;
+	overflow: hidden;
+	background-color: #121314;
+	padding-bottom: 46px;
+	width:100%;
+	margin-left: 90px;
+}
+
+.play{
+	padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #37a037;
+    border-radius: 20px;
+    width: 80px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+}
+.play_track{
+	cursor: pointer;
+	color:#f7f5f5;
+}
+.add_track{
+	cursor: pointer;
+	color:#f7f5f5;
+}
+.fav_track{
+	cursor: pointer;
+	color:#f7f5f5;
+}
+.track{ 
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-top:1px solid #252424;
+}
+.track:last-child{
+	border-bottom:1px solid #252424;	
+}
+.track:hover{
+	background-color: #1c1c1d;
+}

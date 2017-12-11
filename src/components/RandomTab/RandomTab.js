@@ -1,4 +1,5 @@
 import React from 'react';
+import './RandomTab.css';
 import RandomTabArtist from './RandomTabArtist';
 import RandomTabAlbum from './RandomTabAlbum';
 

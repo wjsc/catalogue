@@ -1,4 +1,5 @@
 import React from 'react';
+import './AlbumTab.css';
 import AlbumTabTrack from './AlbumTabTrack';
 import AlbumCover from '../AlbumCover';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchTab.css';
 import SearchTabArtist from './SearchTabArtist';
 import SearchTabAlbum from './SearchTabAlbum';
 import SearchTabTrack from './SearchTabTrack';

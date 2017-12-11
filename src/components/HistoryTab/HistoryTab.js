@@ -1,4 +1,5 @@
 import React from 'react';
+import './HistoryTab.css';
 import HistoryTabTrack from './HistoryTabTrack';
 
 class HistoryTab extends React.Component {

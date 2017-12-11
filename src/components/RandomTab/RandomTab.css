@@ -1,0 +1,87 @@
+.random_tab{
+    
+    }
+    .random_tab .title{
+        display: inline-block;
+        font-size: 25px;
+        color: #f54865;
+    }
+    .random_tab .fa-refresh{
+        display: inline-block;
+        cursor:pointer;
+        float: right;
+        margin-right: 30px;
+        margin-top: 30px;
+        color:#f7f5f5;
+    }
+    .random_tab .artists{
+        display: block;
+        padding-left: 30px;
+    }
+    .random_tab .artists .title{
+        margin-left: 5px;
+        font-size: 15px;
+        color: #f54865;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .random_tab .artists .results{
+        display: block;
+    }
+    .random_tab .artists .results .artist{
+        width: 15%;
+        padding-top: 15%;
+        position: relative;
+        display: inline-block;
+        background-color: #0c0c0c;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .random_tab .artists .results .artist:hover{
+        background-color: #1c1c1d;
+    }
+    .random_tab .artists .results .artist .name{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        text-align: center;
+    }
+    .random_tab .artists .results .artist .placeholder{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        font-size: 60px;
+        left: 50%;
+        color: #1c1c1d;
+        top: 50%;
+    }
+    .random_tab .albums{
+        padding-left: 30px;
+    }
+    .random_tab .albums .title{
+        margin-left: 5px;
+        font-size: 15px;
+        color: #f54865;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .random_tab .albums .results{
+        display: block;
+    }
+    .random_tab .albums .results .album{
+        cursor:pointer;
+        display: inline-block;
+        width: 15%;
+        vertical-align: top;
+        padding:5px;
+    
+    }
+    .random_tab .albums .results .album:hover{
+        background-color: #1c1c1d;
+    }
+    .random_tab .albums .results .album .cover{
+        width: 100%;
+    }
+    .random_tab .albums .results .album .name{
+        height: 35px;
+    }

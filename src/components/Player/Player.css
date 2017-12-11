@@ -1,0 +1,151 @@
+.player {
+	font-family: sans-serif;
+	width: 100%;
+    bottom: 0;
+    position: fixed;
+    z-index: 4;
+    background-color: #0c0c0c;
+    height: 46px;
+    color: #f7f5f5;
+    display:flex;
+}
+.player .player_prev, 
+.player .player_play, 
+.player .player_next, 
+.player .player_timeline, 
+.player .player_volume,
+.player .player_fav_track{
+	display: inline-block;
+    vertical-align: middle;
+    line-height: 46px;
+    height: 46px;
+}
+.player .player_prev{
+    font-size: 20px;
+    margin-left: 100px;
+    cursor: pointer;
+    order:1;
+}
+.player .player_play{
+    font-size: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    cursor: pointer;
+    order:2;
+    width:23px;
+}
+.player .player_next{
+    font-size: 20px;
+    margin-right: 25px;
+    cursor: pointer;
+    order:3;
+}
+.player .player_timeline{
+    flex-grow: 2;
+    order:4;
+    display: flex;
+}
+.player .player_timeline .player_track_cover{
+	display: inline-block;
+	order:1;
+	height: 46px;
+	margin-top: 8px;
+	margin-bottom:8px;
+	cursor: pointer;
+}
+.player .player_timeline .player_track_cover img{
+	height: 30px;
+}
+.player .player_timeline .player_track_container{
+	order:2;
+	flex-grow: 2;
+	display: inline-block;
+	height: 46px;
+	width:auto;
+	vertical-align: top;
+	margin-top: 8px;
+	margin-bottom:8px;
+}
+.player .player_timeline .player_track_container .player_track{
+	display: block;
+	font-size: 12px;
+	line-height: 12px;
+	color: #f54865;
+	padding-left:10px;
+}
+.player .player_timeline .player_track_container .player_track .name{
+	display: inline-block;
+}
+.player .player_timeline .player_track_container .player_track .fav_track{
+	display: inline-block;
+	margin-left: 10px;
+}
+.player .player_timeline .player_track_container .player_progress{
+	height: 18px;
+	line-height: 18px;
+	font-size: 10px;
+	display: flex;
+}
+.player .player_timeline .player_track_container .player_progress_hide{
+	display: none;
+}
+.player .player_timeline .player_track_container .player_progress .progress-bar-time{
+	display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.player .player_timeline .player_track_container .player_progress .passed{
+	order:1;
+}
+.player .player_timeline .player_track_container .player_progress .progress-bar-wrapper{
+	display: inline-block;
+    height: 2px;
+    background-color: #323438;
+    vertical-align: middle;
+    order:2;
+    flex-grow: 2;
+    margin-top: 8px;
+    cursor:pointer;
+}
+.player .player_timeline .player_track_container .player_progress .progress-bar-wrapper .progress-bar{
+	background-color: #f54865;
+	height: 2px;
+	width: 0px;
+}
+.player .player_timeline .player_track_container .player_progress .duration{
+	order:3;
+}
+.player .player_timeline .player_track_container .player_progress .progress-bar-time{
+	display: inline-block;
+}
+.player .player_fav_track{
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 25px;
+    order:5;
+}
+.player .player_volume{
+	margin-right: 100px;
+    width:75px;
+    order:6;
+}
+.player .player_volume .slider_container{
+	height: 10px;
+    background-color: #1c1c1d;
+    margin-top: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.player .player_volume .slider_container .slider{
+    width:10px;
+    height: 10px;
+    background-color: #f7f5f5;
+    border-radius: 10px;
+    position: relative;
+}
+.player .current{
+	color: #f54865;
+}

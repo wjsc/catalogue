@@ -1,4 +1,5 @@
 import React from 'react';
+import './ArtistTab.css';
 import ArtistTabAlbum from './ArtistTabAlbum';
 
 const ARTISTS_API='http://localhost:3001/artist/';

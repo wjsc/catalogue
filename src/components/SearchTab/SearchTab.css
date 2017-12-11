@@ -1,0 +1,130 @@
+.search_tab{
+}
+
+.search_tab .banner{
+	background-color: #0c0c0c;
+	margin-bottom: 30px;
+}
+.search_tab .banner .help{
+	padding-top:30px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    color: #f54865;
+    padding-left: 30px;
+}
+.search_tab .banner .search{
+    padding: 10px;
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    background-color: #121314;
+    color: #f7f5f5;
+    font-size: 25px;
+    margin-bottom: 25px;
+    margin-left: 30px;
+}
+.search_tab .all-results .title{
+	font-weight: bold;
+    color: #f54865;
+    margin-bottom: 5px;
+    padding-left: 30px;
+    margin-left: 5px;
+}
+.search_tab .all-results .results{
+	margin-bottom: 5px;
+	padding-left: 30px;
+}
+.search_tab .all-results{
+	
+}
+.search_tab .all-results .no-results{
+	padding-left: 30px;
+}
+.search_tab .all-results .artists{
+	
+}
+.search_tab .all-results .artists .title{
+	
+}
+.search_tab .all-results .artists .results{
+	
+}
+.search_tab .all-results .artists .results .artist{
+	width: 15%;
+	padding-top: 15%;
+	position: relative;
+	display: inline-block;
+	background-color: #0c0c0c;
+	margin: 5px;
+	cursor: pointer;
+}
+.search_tab .all-results .artists .results .artist:hover{
+	background-color: #1c1c1d;
+}
+.search_tab .all-results .artists .results .artist .name{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    text-align: center;
+}
+.search_tab .all-results .artists .results .artist .placeholder{
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-size: 40px;
+	left: 50%;
+	color: #1c1c1d;
+	top: 50%;
+}
+.search_tab .all-results .albums{
+	
+}
+.search_tab .all-results .albums .title{
+	
+}
+.search_tab .all-results .albums .results{
+	
+}
+.search_tab .all-results .albums .results .album{
+	cursor:pointer;
+	display: inline-block;
+	width: 15%;
+	vertical-align: top;
+	padding:5px;
+}
+.search_tab .all-results .albums .results .album:hover{
+	background-color: #1c1c1d;
+}
+.search_tab .all-results .albums .results .album .cover{
+	width: 100%;
+}
+.search_tab .all-results .albums .results .album .name{
+	height: 35px;
+}
+.search_tab .all-results .tracks{
+	
+}
+.search_tab .all-results .tracks .title{
+	
+}
+.search_tab .all-results .tracks .results{
+	
+}
+.search_tab .all-results .tracks .results .track{
+	
+}
+.search_tab .all-results .tracks .results .track .play_track {
+	display: inline-block;
+	margin-right: 10px;
+}
+.search_tab .all-results .tracks .results .track .add_track {
+	display: inline-block;
+	margin-right: 10px;
+}
+.search_tab .all-results .tracks .results .track .fav_track {
+	display: inline-block;
+	margin-right: 10px;
+}
+.search_tab .all-results .tracks .results .track .track_name{
+	display: inline-block;
+}
