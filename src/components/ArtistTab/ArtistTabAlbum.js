@@ -12,7 +12,7 @@ class ArtistTabAlbum extends React.Component {
 		};
 	}
 	renderTracks(tracks){
-		return this.state.tracks ? this.state.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track}  favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
+		return this.state.tracks ? this.state.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
 	}
 	componentDidMount(){
 		fetchTracksByAlbum(this.props.album._id)

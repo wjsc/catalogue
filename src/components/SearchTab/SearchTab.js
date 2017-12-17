@@ -3,7 +3,7 @@ import './SearchTab.css';
 import SearchTabArtist from './SearchTabArtist';
 import SearchTabAlbum from './SearchTabAlbum';
 import SearchTabTrack from './SearchTabTrack';
-import {searchArtists, searchAlbums, searchTracks} from '../../calls';
+import {searchArtists, searchAlbums, searchTracks, checkFavorites} from '../../calls';
 
 class SearchTab extends React.Component {
 	constructor(props) {
@@ -11,7 +11,8 @@ class SearchTab extends React.Component {
 		this.state = {
 			artists :[],
 			albums :[],
-			tracks :[]
+			tracks :[],
+			favorites: []
 		};
 		this.search = this.search.bind(this);
 
@@ -20,7 +21,9 @@ class SearchTab extends React.Component {
 		if (ev.key === 'Enter') {
 			searchArtists(ev.target.value).then( artists => this.setState({artists}));
 			searchAlbums(ev.target.value).then( albums => this.setState({albums}));
-			searchTracks(ev.target.value).then( tracks => this.setState({tracks}));	
+			searchTracks(ev.target.value).then( tracks => this.setState({tracks}))
+			.then(() => checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.tracks.map(t => t._id).join(','))
+			.then( favorites => this.setState({favorites})));
 		}
 	}
 	renderArtists(){
@@ -30,7 +33,7 @@ class SearchTab extends React.Component {
 		return this.state.albums ? this.state.albums.map( album =><SearchTabAlbum key={album._id} album={album}/>) : false;
 	}
 	renderTracks(){
-		return this.state.tracks ? this.state.tracks.map( track =><SearchTabTrack key={track._id} track={track}/>) : false;
+		return this.state.tracks ? this.state.tracks.map( track =><SearchTabTrack key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)} />) : false;
 	}
 	render() {
 		return (
