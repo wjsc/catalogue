@@ -70,7 +70,7 @@
     .random_tab .albums .results{
         display: block;
     }
-    .random_tab .albums .results .album{
+    .random_tab .albums .results .cover_wrapper{
         cursor:pointer;
         display: inline-block;
         width: 15%;
@@ -78,12 +78,12 @@
         padding:5px;
     
     }
-    .random_tab .albums .results .album:hover{
+    .random_tab .albums .results .cover_wrapper:hover{
         background-color: #1c1c1d;
     }
-    .random_tab .albums .results .album .cover{
+    .random_tab .albums .results .cover_wrapper .cover{
         width: 100%;
     }
-    .random_tab .albums .results .album .name{
+    .random_tab .albums .results .cover_wrapper .name{
         height: 35px;
     }
