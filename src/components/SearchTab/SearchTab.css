@@ -128,6 +128,14 @@
 	display: inline-block;
 	margin-right: 10px;
 }
+
+.search_tab .all-results .tracks .results .track .track_number{
+	width:20px;
+	text-align: right;
+	display: inline-block;
+	margin-right: 10px;
+}
+
 .search_tab .all-results .tracks .results .track .track_name{
 	display: inline-block;
 }
