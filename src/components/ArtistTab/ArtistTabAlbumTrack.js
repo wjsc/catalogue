@@ -18,8 +18,8 @@ class ArtistTabAlbumTrack extends React.Component {
 		}));
 		
 	}
-	componentWillReceiveProps(props){
-		this.setState({favorite: props.favorite})
+	componentWillReceiveProps(nextProps){
+		nextProps !== this.props ? this.setState({favorite: nextProps.favorite}) : false;
 	}
 	render(){
 		return (

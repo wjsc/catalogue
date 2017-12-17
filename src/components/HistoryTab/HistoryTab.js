@@ -6,18 +6,11 @@ class HistoryTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			'tracks':[
-				'Track-1',
-				'Track-2',
-				'Track-3',
-				'Track-4',
-				'Track-5',
-				'Track-6'
-			]
+			 tracks :[ ]
 		};
 	}
 	renderTracks(){
-		return this.state.tracks.map((track)=><HistoryTabTrack key={track} track={track}/>);
+		return this.state.tracks ? this.state.tracks.map((track)=><HistoryTabTrack key={track} track={track}/>) : false;
 	}
 	render() {
 		return (

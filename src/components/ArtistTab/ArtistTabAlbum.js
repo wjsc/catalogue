@@ -15,6 +15,7 @@ class ArtistTabAlbum extends React.Component {
 		return this.state.tracks ? this.state.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
 	}
 	componentDidMount(){
+		// TODO: Sync Bug
 		fetchTracksByAlbum(this.props.album._id)
 		.then( tracks => this.setState({tracks}));
 		checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.album.tracks.join(','))
