@@ -4,7 +4,7 @@ import ArtistTabAlbumTrack from '../ArtistTab/ArtistTabAlbumTrack';
 class FavoritesTabTrack extends React.Component {
 	render(){
 		return (
-			<ArtistTabAlbumTrack track={this.props.track}/>
+			<ArtistTabAlbumTrack track={this.props.track} favorite={true}/>
 		);
 	}
 }

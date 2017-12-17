@@ -1,4 +1,5 @@
 import React from 'react';
+import {insertFavorite} from '../../calls.js';
 
 class AlbumTabTrack extends React.Component {
 	render(){
@@ -6,7 +7,8 @@ class AlbumTabTrack extends React.Component {
 			<div className="track">
 				<i className="play_track fa fa-play-circle"></i>
 				<i className="add_track fa fa-plus-circle"></i>
-				<i className="fav_track fa fa-heart-o"></i>
+				<i className={this.props.favorite ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}
+					onClick={() => insertFavorite('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.track._id)}></i>
 				<div className="track_number">
 					{this.props.track.no}
 				</div>

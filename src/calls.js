@@ -37,3 +37,5 @@ export const removeFavorite = (user, track) => fetch(FAVORITE_API+'',{
         headers: defaultHeaders,
         body: { user, track }
     })
+
+export const checkFavorites = (user, tracks) => fetch(FAVORITE_API+'?user='+user+'&tracks='+tracks, options).then(resjson);

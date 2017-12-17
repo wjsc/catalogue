@@ -1,21 +1,25 @@
 import React from 'react';
 import ArtistTabAlbumTrack from './ArtistTabAlbumTrack';
 import AlbumCover from '../AlbumCover';
-import {fetchTracksByAlbum} from '../../calls.js';
+import {fetchTracksByAlbum, checkFavorites} from '../../calls.js';
 
 class ArtistTabAlbum extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			tracks: []
+			tracks: [],
+			favorites: []
 		};
 	}
 	renderTracks(tracks){
-		return this.state.tracks ? this.state.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track}/>) : false;
+		return this.state.tracks ? this.state.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track}  favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
 	}
 	componentDidMount(){
 		fetchTracksByAlbum(this.props.album._id)
-		.then(tracks => this.setState({tracks}));
+		.then( tracks => this.setState({tracks}));
+		checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.album.tracks.join(','))
+		.then( favorites => this.setState({favorites}));
+
 	}
 	render(){
 		return (
