@@ -1,7 +1,7 @@
 import React from 'react';
 import ArtistTabAlbumTrack from './ArtistTabAlbumTrack';
 import AlbumCover from '../AlbumCover';
-import {fetchTracksByAlbum, checkFavorites} from '../../calls.js';
+import {fetchTracksByAlbum, checkFavorites, fetchFavorites} from '../../calls.js';
 
 class ArtistTabAlbum extends React.Component {
 	constructor(props) {
@@ -10,17 +10,18 @@ class ArtistTabAlbum extends React.Component {
 			tracks: [],
 			favorites: []
 		};
+		this.fetchFavorites = this.fetchFavorites.bind(this);
 	}
 	renderTracks(tracks){
 		return this.state.tracks ? this.state.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
 	}
-	componentDidMount(){
-		// TODO: Sync Bug
+	componentWillMount(){
 		fetchTracksByAlbum(this.props.album._id)
-		.then( tracks => this.setState({tracks}));
-		checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.album.tracks.join(','))
-		.then( favorites => this.setState({favorites}));
-
+		.then( tracks => this.setState({tracks}, this.fetchFavorites));
+	}
+	fetchFavorites(){
+		return checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.album.tracks.join(','))
+				.then( favorites => this.setState({favorites}));
 	}
 	render(){
 		return (

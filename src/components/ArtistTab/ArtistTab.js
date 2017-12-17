@@ -1,5 +1,6 @@
 import React from 'react';
 import './ArtistTab.css';
+import {playerLink} from '../playerLink';
 import ArtistTabAlbum from './ArtistTabAlbum';
 import {fetchArtist, fetchAlbumsByArtist} from '../../calls.js';
 
