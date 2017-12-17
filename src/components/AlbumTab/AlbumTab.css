@@ -4,8 +4,8 @@
 .album_tab .banner .cover_container{
     display: inline-flex;
     background-color: #333333;
-    width: 30%;
-    padding-top: 30%;
+    width: 20%;
+    padding-top: 20%;
     position: relative;
 }
 .album_tab .banner .cover_container .cover{
