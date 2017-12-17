@@ -4,33 +4,34 @@ const ALBUM_API = SERVER + 'album/';
 const TRACK_API = SERVER + 'track/';
 const FAVORITE_API = SERVER + 'favorite/';
 
-export const defaultHeaders={ 'Accept': 'application/json', 'Content-Type': 'application/json' };
-export const options={ method:'GET', headers: defaultHeaders};
 const resjson = res => res.json();
+const queryString = obj => obj ? '?' + Object.keys(obj).reduce((a,k) => {a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&') : '';
 
-export const fetchArtists = () => fetch(ARTIST_API, options).then(resjson);
-export const fetchAlbums = () => fetch(ALBUM_API, options).then(resjson);
-export const fetchTracks = () => fetch(TRACK_API, options).then(resjson);
+const defaultHeaders={ 'Accept': 'application/json', 'Content-Type': 'application/json' };
+const options={ method:'GET', headers: defaultHeaders};
 
-export const fetchArtist = (artist) => fetch(ARTIST_API+artist, options).then(resjson);
-export const fetchAlbum = (album) => fetch(ALBUM_API+album, options).then(resjson);
-export const fetchTrack = (track) => fetch(TRACK_API+track, options).then(resjson);
+const get = (endpoint, params) => fetch(endpoint + queryString(params), {method: 'GET', options: options, headers: defaultHeaders}).then(resjson);
+const post = (endpoint, body) => fetch(endpoint, {method: 'POST', options: options, headers: defaultHeaders, body: JSON.stringify(body)}).then(resjson);
 
-export const fetchAlbumsByArtist = (artist) => fetch(ALBUM_API+'artist/'+artist, options).then(resjson);
-export const fetchTracksByArtist = (artist) => fetch(TRACK_API+'artist/'+artist, options).then(resjson);
-export const fetchTracksByAlbum = (album) => fetch(TRACK_API+'album/'+album, options).then(resjson);
+export const fetchArtists = () => get(ARTIST_API);
+export const fetchAlbums = () => get(ALBUM_API);
+export const fetchTracks = () => get(TRACK_API);
 
-export const searchArtists = (keyword) => fetch(ARTIST_API+'search/'+keyword, options).then(resjson);
-export const searchAlbums = (keyword) => fetch(ALBUM_API+'search/'+keyword, options).then(resjson);
-export const searchTracks = (keyword) => fetch(TRACK_API+'search/'+keyword, options).then(resjson);
+export const fetchArtist = (artist) => get(ARTIST_API+artist);
+export const fetchAlbum = (album) => get(ALBUM_API+album);
+export const fetchTrack = (track) => get(TRACK_API+track);
 
-export const fetchFavorites = (user) => fetch(FAVORITE_API+'user/'+user, options).then(resjson);
+export const fetchAlbumsByArtist = (artist) => get(ALBUM_API+'artist/'+artist);
+export const fetchTracksByArtist = (artist) => get(TRACK_API+'artist/'+artist);
+export const fetchTracksByAlbum = (album) => get(TRACK_API+'album/'+album);
 
-export const insertFavorite = (user, track) => fetch(FAVORITE_API+'',{
-        method: 'POST',
-        headers: defaultHeaders,
-        body: JSON.stringify({ user, track })
-    })
+export const searchArtists = (keyword) => get(ARTIST_API+'search/'+keyword);
+export const searchAlbums = (keyword) => get(ALBUM_API+'search/'+keyword);
+export const searchTracks = (keyword) => get(TRACK_API+'search/'+keyword);
+
+export const fetchFavorites = (user) => get(FAVORITE_API+'user/'+user);
+
+export const insertFavorite = (user, track) => post(FAVORITE_API,{ user, track });
 
 export const removeFavorite = (user, track) => fetch(FAVORITE_API+'',{
         method: 'DEL',
@@ -38,4 +39,4 @@ export const removeFavorite = (user, track) => fetch(FAVORITE_API+'',{
         body: { user, track }
     })
 
-export const checkFavorites = (user, tracks) => fetch(FAVORITE_API+'?user='+user+'&tracks='+tracks, options).then(resjson);
+export const checkFavorites = (user, tracks) => get(FAVORITE_API, { user, tracks });

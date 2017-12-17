@@ -3,8 +3,9 @@ import Track from '../Track';
 
 class FavoritesTabTrack extends React.Component {
 	render(){
+		delete this.props.track.no;
 		return (
-			<Track track={this.props.track} favorite={this.props.favorite}/>
+			<Track track={this.props.track} favorite={true}/>
 		);
 	}
 }
