@@ -59,9 +59,16 @@
 }
 .artist_tab .albums .album .details .title{
     font-size: 20px;
-    display: block;
+    display: inline-block;
     margin-bottom: 20px;
     margin-left: 30px;
+}
+.artist_tab .albums .album .details .year{
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    color: #323232;    
 }
 .artist_tab .albums .album .details .tracks{
     display: block;

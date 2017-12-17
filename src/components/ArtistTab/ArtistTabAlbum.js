@@ -18,6 +18,9 @@ class ArtistTabAlbum extends React.Component {
 						<div className="title">
 							{this.props.album.title}
 						</div>
+						<div className="year">
+							{this.props.album.year}
+						</div>
 						<div className="tracks">
 							{this.renderTracks()}
 						</div>
