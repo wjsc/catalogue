@@ -1,5 +1,6 @@
 import React from 'react';
 import {insertFavorite} from '../../calls.js';
+import {formatDuration} from '../../lib.js';
 
 class AlbumTabTrack extends React.Component {
 	constructor(props) {
@@ -34,7 +35,7 @@ class AlbumTabTrack extends React.Component {
 					{this.props.track.title}
 				</div>
 				<div className="track_duration">
-					{this.props.track.duration}
+					{formatDuration(this.props.track.duration)}
 				</div>
 			</div>
 		);
