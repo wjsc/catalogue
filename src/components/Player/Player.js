@@ -17,12 +17,13 @@ const ID = Math.random();
 
 class Player extends React.Component {
     componentDidMount() {
-        const element = document.getElementById(ID);
-        element.onended = () => playerLink.next();
-        element.ontimeupdate = (ev) => playerLink.progressUpdate(ev.target.currentTime);
+        this.element = document.getElementById(ID);
+        this.element.onended = () => playerLink.next();
+        this.element.ontimeupdate = (ev) => playerLink.progressUpdate(ev.target.currentTime);
     }
     componentWillReceiveProps(nextProps){
-        return nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] ? document.getElementById(ID).load() :  false;
+        nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] ? this.element.load() :  false;
+        nextProps.state.status !== this.props.state.status ? nextProps.state.status === 'play' ? this.element.play() : this.element.pause() : false;
     }
     renderAudio(currentTrack){
         return <audio autoPlay id={ID}><source key={currentTrack._id} src={CDN_URL+currentTrack.audio} type="audio/mpeg"/></audio>;
@@ -46,7 +47,7 @@ class Player extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <PlayerVolume value={this.props.state.volume}/>
+                    {/* <PlayerVolume value={this.props.state.volume}/> */}
                 </div>
             );
     }
