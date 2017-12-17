@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-
-
-const CDN_URL='http://localhost:3002/';
+import {CDN_URL} from '../calls'
 
 class AlbumCover extends React.Component {
 	render() {

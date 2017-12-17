@@ -1,4 +1,5 @@
 const SERVER = 'http://localhost:3001/';
+export const CDN_URL='http://localhost:3002/';
 const ARTIST_API = SERVER + 'artist/';
 const ALBUM_API = SERVER + 'album/';
 const TRACK_API = SERVER + 'track/';

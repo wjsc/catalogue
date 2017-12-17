@@ -1,6 +1,7 @@
 import React from 'react';
 import {insertFavorite} from '../calls.js';
 import {formatDuration} from '../lib.js';
+import {playerLink} from './playerLink';
 
 class Track extends React.Component {
 	constructor(props) {
@@ -24,8 +25,8 @@ class Track extends React.Component {
 	render(){
 		return (
 			<div className="track">
-				<i className="play_track fa fa-play-circle"></i>
-				<i className="add_track fa fa-plus-circle"></i>
+				<i className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(this.props.track)}></i>
+				<i className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(this.props.track)}></i>
 				<i className={this.state.favorite ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}
 					onClick={this.toggleFavorite }></i>
 				<div className="track_number">
