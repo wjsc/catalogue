@@ -17,3 +17,7 @@ export const fetchTrack = (trackId) => fetch(TRACK_API+trackId, options).then(re
 export const fetchAlbumsByArtist = (artistId) => fetch(ALBUM_API+'artist/'+artistId, options).then(resjson);
 export const fetchTracksByArtist = (artistId) => fetch(TRACK_API+'artist/'+artistId, options).then(resjson);
 export const fetchTracksByAlbum = (albumId) => fetch(TRACK_API+'album/'+albumId, options).then(resjson);
+
+export const searchArtists = (keyword) => fetch(ARTIST_API+'search/'+keyword, options).then(resjson);
+export const searchAlbums = (keyword) => fetch(ALBUM_API+'search/'+keyword, options).then(resjson);
+export const searchTracks = (keyword) => fetch(TRACK_API+'search/'+keyword, options).then(resjson);

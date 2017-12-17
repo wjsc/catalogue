@@ -128,3 +128,8 @@
 .search_tab .all-results .tracks .results .track .track_name{
 	display: inline-block;
 }
+
+.search_tab .all-results .tracks .results .track  .track_duration{
+	display: inline-block;
+	float:right;
+}

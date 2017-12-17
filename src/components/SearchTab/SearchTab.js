@@ -3,64 +3,57 @@ import './SearchTab.css';
 import SearchTabArtist from './SearchTabArtist';
 import SearchTabAlbum from './SearchTabAlbum';
 import SearchTabTrack from './SearchTabTrack';
+import {searchArtists, searchAlbums, searchTracks} from '../../calls';
 
 class SearchTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			'artists':[
-				'Artist-1',
-				'Artist-2',
-				'Artist-3',
-				'Artist-4'
-			],
-			'albums':[
-				'Album-1',
-				'Album-2',
-				'Album-3',
-				'Album-4'
-			],
-			'tracks':[
-				'Track-1',
-				'Track-2',
-				'Track-3',
-				'Track-4',
-				'Track-5',
-				'Track-6'
-			]
+			artists :[],
+			albums :[],
+			tracks :[]
 		};
+		this.search = this.search.bind(this);
+
+	}
+	search(ev) {
+		if (ev.key === 'Enter') {
+			searchArtists(ev.target.value).then( artists => this.setState({artists}));
+			searchAlbums(ev.target.value).then( albums => this.setState({albums}));
+			searchTracks(ev.target.value).then( tracks => this.setState({tracks}));	
+		}
 	}
 	renderArtists(){
-		return this.state.artists.map((artist)=><SearchTabArtist key={artist} artist={artist}/>);
+		return this.state.artists ? this.state.artists.map( artist =><SearchTabArtist key={artist} artist={artist}/>) : false;
 	}
 	renderAlbums(){
-		return this.state.albums.map((album)=><SearchTabAlbum key={album} album={album}/>);
+		return this.state.albums ? this.state.albums.map( album =><SearchTabAlbum key={album} album={album}/>) : false;
 	}
 	renderTracks(){
-		return this.state.tracks.map((track)=><SearchTabTrack key={track} track={track}/>);
+		return this.state.tracks ? this.state.tracks.map( track =><SearchTabTrack key={track} track={track}/>) : false;
 	}
 	render() {
 		return (
 				<div className="tab search_tab">
 					<div className="banner">
 						<div className="help">Type to find music</div>
-						<input className="search" placeholder="Search" pattern=".{3,25}" type="text"/>
+						<input className="search" onKeyPress={this.search} placeholder="Search" pattern=".{3,25}" type="text"/>
 					</div>
 					<div className="all-results">
 						<div className="artists">
-							<div className="title">Artists</div>
+							<div className="title">{this.state.artists.length +' artists'}</div>
 							<div className="results">
 								{this.renderArtists()}
 							</div>
 						</div>
 						<div className="albums">
-							<div className="title">Albums</div>
+							<div className="title">{this.state.artists.length +' albums'}</div>
 							<div className="results">
 								{this.renderAlbums()}
 							</div>
 						</div>
 						<div className="tracks">
-							<div className="title">Tracks</div>
+							<div className="title">{this.state.artists.length +' tracks'}</div>
 							<div className="results">
 								{this.renderTracks()}
 							</div>
