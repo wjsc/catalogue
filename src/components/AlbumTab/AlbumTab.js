@@ -1,5 +1,6 @@
 import React from 'react';
 import './AlbumTab.css';
+import {playerLink} from '../playerLink';
 import AlbumTabTrack from './AlbumTabTrack';
 import AlbumCover from '../AlbumCover';
 import {fetchAlbum, fetchTracksByAlbum, checkFavorites} from '../../calls.js';
@@ -39,7 +40,7 @@ class AlbumTab extends React.Component {
 							<div className="name">
 								{this.state.album && this.state.album.title}
 							</div>
-							<div className="play play_album">
+							<div className="play play_album" onClick={() => playerLink.playTracks(this.state.tracks)}>
 								Play
 							</div>
 						</div>

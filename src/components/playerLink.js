@@ -6,7 +6,10 @@ export const playerLink = {
         return this.component.setState( prevState => ({ status: prevState.status === 'stop' ? 'stop' : prevState.status === 'play' ? 'pause' : 'play' }));
     },
     playTrack: (track) => {
-        return this.component.setState( prevState => ({ status: 'play' , tracks: [track], current: 0, progress: 0}));
+        return this.component.setState( prevState => ({ status: 'play', tracks: [track], current: 0, progress: 0}));
+    },
+    playTracks: (tracks) => {
+        return this.component.setState( prevState => ({ status: 'play', tracks, current: 0, progress: 0}));
     },
     stop: () => {
         return this.component.setState( prevState => ({ status: 'stop'}));
