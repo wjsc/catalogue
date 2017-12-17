@@ -33,7 +33,6 @@
     .artist_tab .albums .album{
         padding-top: 20px;
         padding-bottom: 20px;
-        border-top: 1px solid #272626;
         display: flex;
     }
     .artist_tab .albums .album .cover_container{
