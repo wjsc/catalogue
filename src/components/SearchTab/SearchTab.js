@@ -9,6 +9,7 @@ class SearchTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			searched: false,
 			artists :[],
 			albums :[],
 			tracks :[],
@@ -24,6 +25,7 @@ class SearchTab extends React.Component {
 			searchTracks(ev.target.value).then( tracks => this.setState({tracks}))
 			.then(() => checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.tracks.map(t => t._id).join(','))
 			.then( favorites => this.setState({favorites})));
+			this.setState({searched: true});
 		}
 	}
 	renderArtists(){
@@ -41,28 +43,33 @@ class SearchTab extends React.Component {
 					<div className="banner">
 						<input className="search" onKeyPress={this.search} placeholder="Type to find music" pattern=".{3,25}" type="text"/>
 					</div>
-					<div className="all-results">
-						<div className="artists">
-							<div className="title">{this.state.artists.length +' artists'}</div>
-							<div className="results">
-								{this.renderArtists()}
-							</div>
-						</div>
-						<div className="albums">
-							<div className="title">{this.state.albums.length +' albums'}</div>
-							<div className="results">
-								{this.renderAlbums()}
-							</div>
-						</div>
-						<div className="tracks">
-							<div className="title">{this.state.tracks.length +' tracks'}</div>
-							<div className="results">
-								{this.renderTracks()}
-							</div>
-						</div>
-					</div>
+					{this.renderResults()}
 				</div>
 			);
+	}
+	renderResults(){
+		return this.state.searched ? 
+			<div className="all-results">
+				<div className="artists">
+					<div className="title">{this.state.artists.length +' artists'}</div>
+					<div className="results">
+						{this.renderArtists()}
+					</div>
+				</div>
+				<div className="albums">
+					<div className="title">{this.state.albums.length +' albums'}</div>
+					<div className="results">
+						{this.renderAlbums()}
+					</div>
+				</div>
+				<div className="tracks">
+					<div className="title">{this.state.tracks.length +' tracks'}</div>
+					<div className="results">
+						{this.renderTracks()}
+					</div>
+				</div>
+			</div>
+		: false;
 	}
 }
 

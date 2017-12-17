@@ -90,9 +90,17 @@
 .search_tab .all-results .albums .results .album:hover{
 	background-color: #1c1c1d;
 }
-.search_tab .all-results .albums .results .album .cover{
+.search_tab .all-results .albums .results .cover_wrapper{
+	cursor:pointer;
+	display: inline-block;
+	width: 15%;
+	vertical-align: top;
+	padding:5px;
+}
+.search_tab .all-results .albums .results .cover_wrapper .cover{
 	width: 100%;
 }
+
 .search_tab .all-results .albums .results .album .name{
 	height: 35px;
 }
