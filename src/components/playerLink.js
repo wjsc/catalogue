@@ -12,7 +12,7 @@ export const playerLink = {
         return this.component.setState( prevState => ({ status: 'stop'}));
     },
     next: ()=> {
-        return this.component.setState( prevState => ({ current: prevState.current + 1 }));
+        return this.component.setState( prevState => { return prevState.tracks.lenght > prevState.current ? { current: prevState.current + 1 } : { status: 'stop' }});
     },
     prev: () => {
         return this.component.setState( prevState => ({ current: prevState.current - 1 }));

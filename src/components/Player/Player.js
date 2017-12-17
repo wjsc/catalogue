@@ -13,35 +13,39 @@ import PlayerProgress from './PlayerProgress';
 import PlayerTotalTime from './PlayerTotalTime';
 import PlayerVolume from './PlayerVolume';
 
+const ID = Math.random(); 
+
 class Player extends React.Component {
-  renderPlayer() {
-      const currentTrack = this.props.state.tracks[this.props.state.current];
-      return (
-            <div className="player">
-                <audio autoPlay id="audio_element">
-                    <source src={CDN_URL+currentTrack.audio} type="audio/mpeg"/>
-                </audio>
-                <PlayerPrev onclick={playerLink.prev}/>
-                <PlayerPlayPause onclick={playerLink.togglePlay}/>
-                <PlayerNext  onclick={playerLink.next}/>
-                <div className="player_timeline">
-                    {/* <PlayerAlbumCover album={this.state.album}/> */}
-                    <div className="player_track_container">
-                        <PlayerTrackTitle title={currentTrack.title}/>
-                        <div className="player_progress">
-                            <PlayerCurrentTime value={formatDuration(this.props.state.progress)}/>
-                            <PlayerProgress value={this.props.state.progress/currentTrack.duration}/>
-                            <PlayerTotalTime value={formatDuration( currentTrack.duration )}/>
+    componentDidMount() {
+        const element = document.getElementById(ID);
+        element.onended = () => playerLink.next();
+        element.ontimeupdate = (ev) => playerLink.progressUpdate(ev.target.currentTime);
+    }
+    render() {
+        const currentTrack = this.props.state.tracks[this.props.state.current];
+        return (
+                <div className="player">
+                    <audio autoPlay id={ID}>
+                        <source src={CDN_URL+currentTrack.audio} type="audio/mpeg"/>
+                    </audio>
+                    <PlayerPrev onclick={playerLink.prev}/>
+                    <PlayerPlayPause onclick={playerLink.togglePlay}/>
+                    <PlayerNext  onclick={playerLink.next}/>
+                    <div className="player_timeline">
+                        {/* <PlayerAlbumCover album={this.state.album}/> */}
+                        <div className="player_track_container">
+                            <PlayerTrackTitle title={currentTrack.title}/>
+                            <div className="player_progress">
+                                <PlayerCurrentTime value={formatDuration(this.props.state.progress)}/>
+                                <PlayerProgress value={this.props.state.progress/currentTrack.duration}/>
+                                <PlayerTotalTime value={formatDuration( currentTrack.duration )}/>
+                            </div>
                         </div>
                     </div>
+                    <PlayerVolume value={this.props.state.volume}/>
                 </div>
-                <PlayerVolume value={this.props.state.volume}/>
-            </div>
-          );
-  }
-  render() {
-      return this.props.state.status !== 'stop' ? this.renderPlayer() : false;
-  }
+            );
+    }
 }
 
 export default Player;

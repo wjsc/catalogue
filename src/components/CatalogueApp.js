@@ -21,7 +21,7 @@ class CatalogueApp extends React.Component {
 	    	<div className="catalogue">
 				<Sidebar/>
 				<TabPanel/>
-				<Player state={this.state}/>
+				{ this.state.status !=='stop' && <Player state={this.state}/>}
 			</div>
 		);
 	}
