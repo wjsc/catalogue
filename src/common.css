@@ -95,10 +95,8 @@ a{
 .track{ 
 	padding-top: 12px;
 	padding-bottom: 12px;
-	border-top:1px solid #252424;
 }
 .track:last-child{
-	border-bottom:1px solid #252424;	
 }
 .track:hover{
 	background-color: #1c1c1d;
