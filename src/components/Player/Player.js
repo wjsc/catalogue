@@ -22,7 +22,7 @@ class Player extends React.Component {
         element.ontimeupdate = (ev) => playerLink.progressUpdate(ev.target.currentTime);
     }
     componentWillReceiveProps(nextProps){
-        return nextProps.state.current !== this.props.state.current ? document.getElementById(ID).load() :  false;
+        return nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] ? document.getElementById(ID).load() :  false;
     }
     renderAudio(currentTrack){
         return <audio autoPlay id={ID}><source key={currentTrack._id} src={CDN_URL+currentTrack.audio} type="audio/mpeg"/></audio>;
