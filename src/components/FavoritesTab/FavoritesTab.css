@@ -46,7 +46,7 @@
 .favorites_tab .tracks .track .track_name{
 	display: inline-block;
 }
-.favorites_tab .tracks .track .track_length{
+.favorites_tab .tracks .track .track_duration{
 	display: inline-block;
 	float:right;
 }
