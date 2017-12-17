@@ -14,18 +14,10 @@ class Player extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          trackTitle: 'Lago de forma mía',
-          album:{
-              title:'AAA',
-              _id:'EEE',
-              coverSrc:'III'
-          },
-          currentTime: 100,
-          totalTime: 200,
-          volume: 1
+          status: false
       };
   }
-  render() {
+  renderPlayer() {
       return (
               <div className="player">
                   <PlayerPrev/>
@@ -45,6 +37,9 @@ class Player extends React.Component {
                   <PlayerVolume value={this.state.volume}/>
               </div>
           );
+  }
+  render() {
+      return this.state.status ? this.renderPlayer() : false;
   }
 }
 
