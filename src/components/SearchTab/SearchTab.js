@@ -36,8 +36,7 @@ class SearchTab extends React.Component {
 		return (
 				<div className="tab search_tab">
 					<div className="banner">
-						<div className="help">Type to find music</div>
-						<input className="search" onKeyPress={this.search} placeholder="Search" pattern=".{3,25}" type="text"/>
+						<input className="search" onKeyPress={this.search} placeholder="Type to find music" pattern=".{3,25}" type="text"/>
 					</div>
 					<div className="all-results">
 						<div className="artists">
