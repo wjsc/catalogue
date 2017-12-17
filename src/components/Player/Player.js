@@ -6,7 +6,7 @@ import {CDN_URL} from '../../calls'
 import PlayerPrev from './PlayerPrev';
 import PlayerPlayPause from './PlayerPlayPause';
 import PlayerNext from './PlayerNext';
-import PlayerAlbumCover from './PlayerAlbumCover';
+// import PlayerAlbumCover from './PlayerAlbumCover';
 import PlayerTrackTitle from './PlayerTrackTitle';
 import PlayerCurrentTime from './PlayerCurrentTime';
 import PlayerProgress from './PlayerProgress';
@@ -21,16 +21,20 @@ class Player extends React.Component {
         element.onended = () => playerLink.next();
         element.ontimeupdate = (ev) => playerLink.progressUpdate(ev.target.currentTime);
     }
+    componentWillReceiveProps(nextProps){
+        return nextProps.state.current !== this.props.state.current ? document.getElementById(ID).load() :  false;
+    }
+    renderAudio(currentTrack){
+        return <audio autoPlay id={ID}><source key={currentTrack._id} src={CDN_URL+currentTrack.audio} type="audio/mpeg"/></audio>;
+    }
     render() {
         const currentTrack = this.props.state.tracks[this.props.state.current];
         return (
                 <div className="player">
-                    <audio autoPlay id={ID}>
-                        <source src={CDN_URL+currentTrack.audio} type="audio/mpeg"/>
-                    </audio>
-                    <PlayerPrev onclick={playerLink.prev}/>
-                    <PlayerPlayPause onclick={playerLink.togglePlay}/>
-                    <PlayerNext  onclick={playerLink.next}/>
+                    {this.renderAudio(currentTrack)}
+                    <PlayerPrev onclick={playerLink.prev} active={this.props.state.tracks[this.props.state.current -1]}/>
+                    <PlayerPlayPause onclick={playerLink.togglePlay} status={this.props.state.status}/>
+                    <PlayerNext onclick={playerLink.next} active={this.props.state.tracks[this.props.state.current +1]}/>
                     <div className="player_timeline">
                         {/* <PlayerAlbumCover album={this.state.album}/> */}
                         <div className="player_track_container">

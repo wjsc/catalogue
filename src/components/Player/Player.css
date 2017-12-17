@@ -40,6 +40,11 @@
     cursor: pointer;
     order:3;
 }
+
+.player .player_prev.inactive, .player .player_next.inactive {
+    opacity: 0.1;
+    cursor: not-allowed;
+}
 .player .player_timeline{
     flex-grow: 2;
     order:4;

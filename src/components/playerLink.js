@@ -6,16 +6,16 @@ export const playerLink = {
         return this.component.setState( prevState => ({ status: prevState.status === 'stop' ? 'stop' : prevState.status === 'play' ? 'pause' : 'play' }));
     },
     playTrack: (track) => {
-        return this.component.setState( prevState => ({ status: 'play' , tracks: [track], current: 0}));
+        return this.component.setState( prevState => ({ status: 'play' , tracks: [track], current: 0, progress: 0}));
     },
     stop: () => {
         return this.component.setState( prevState => ({ status: 'stop'}));
     },
     next: ()=> {
-        return this.component.setState( prevState => { return prevState.tracks.lenght > prevState.current ? { current: prevState.current + 1 } : { status: 'stop' }});
+        return this.component.setState( prevState => { return prevState.tracks[prevState.current + 1 ] ? { current: prevState.current + 1, progress: 0 } : { status: 'stop', progress: 0, current: 0 }});
     },
     prev: () => {
-        return this.component.setState( prevState => ({ current: prevState.current - 1 }));
+        return this.component.setState( prevState => { return prevState.tracks[prevState.current - 1 ] ? { current: prevState.current - 1, progress: 0 } : { status: 'stop', progress: 0, current: 0 }});
     },
     addTrack: (track) => {
         return this.component.setState( prevState => ({ tracks: [...prevState.tracks, track] }));
