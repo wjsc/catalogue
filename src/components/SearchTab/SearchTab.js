@@ -23,8 +23,8 @@ class SearchTab extends React.Component {
 			searchArtists(ev.target.value).then( artists => this.setState({artists}));
 			searchAlbums(ev.target.value).then( albums => this.setState({albums}));
 			searchTracks(ev.target.value).then( tracks => this.setState({tracks}))
-			.then(() => checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.tracks.map(t => t._id).join(','))
-			.then( favorites => this.setState({favorites})));
+			.then(() => this.state.tracks && checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.tracks.map(t => t._id).join(','))
+			.then( favorites => this.setState({favorites})))
 			this.setState({searched: true});
 		}
 	}
@@ -51,19 +51,19 @@ class SearchTab extends React.Component {
 		return this.state.searched ? 
 			<div className="all-results">
 				<div className="artists">
-					<div className="title">{this.state.artists.length +' artists'}</div>
+					<div className="title">{this.state.artists ? this.state.artists.length +' artists' : false}</div>
 					<div className="results">
 						{this.renderArtists()}
 					</div>
 				</div>
 				<div className="albums">
-					<div className="title">{this.state.albums.length +' albums'}</div>
+					<div className="title">{this.state.albums ? this.state.albums.length +' albums' : false}</div>
 					<div className="results">
 						{this.renderAlbums()}
 					</div>
 				</div>
 				<div className="tracks">
-					<div className="title">{this.state.tracks.length +' tracks'}</div>
+					<div className="title">{this.state.tracks ? this.state.tracks.length +' tracks' : false}</div>
 					<div className="results">
 						{this.renderTracks()}
 					</div>
