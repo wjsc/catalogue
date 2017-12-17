@@ -1,14 +1,7 @@
 import React from 'react';
 import './ArtistTab.css';
 import ArtistTabAlbum from './ArtistTabAlbum';
-
-const ARTISTS_API='http://localhost:3001/artist/';
-const ALBUMS_API='http://localhost:3001/album/';
-
-const defaultHeaders={
-	'Accept': 'application/json',
-	'Content-Type': 'application/json'
-};
+import {fetchArtist, fetchAlbumsByArtist} from '../../calls.js';
 
 class ArtistTab extends React.Component {
 	constructor(props) {
@@ -19,33 +12,13 @@ class ArtistTab extends React.Component {
 		};
 	}
 	componentWillMount(){
-		let options={
-			method:'GET',
-			headers: defaultHeaders
-		};	
-		fetch(ARTISTS_API+this.props.match.params._id, options)
-	    .then((res)=> res.json())
-		.then((artist)=>this.setState({artist}))
-		.then(() => this.fetchAlbums())
-	}
-	fetchAlbums(){
-		let options={
-			method:'GET',
-			headers: defaultHeaders
-		};	
-		this.state.artist.albums.forEach(album => {
-			fetch(ALBUMS_API+album, options)
-			.then((res)=> res.json())
-			.then((album)=>this.setState(prevState => 
-				({
-					albums: [...prevState.albums.slice(0), album]
-				})
-			));
-		})
-		
+		fetchArtist(this.props.match.params._id)
+		.then(artist => this.setState({artist}));
+		fetchAlbumsByArtist(this.props.match.params._id)
+		.then(albums => this.setState({albums}));
 	}
 	renderAlbums(){
-		return this.state.albums ? this.state.albums.map((album)=><ArtistTabAlbum key={album.title} album={album}/>):false;
+		return this.state.albums ? this.state.albums.map( album => <ArtistTabAlbum key={album._id} album={album} />) : false;
 	}
 	render() {
 		return (
@@ -53,10 +26,10 @@ class ArtistTab extends React.Component {
 					<div className="banner">
 						<div className="details_container">
 							<div className="name">
-								{this.state.name}
+								{this.state.artist.name}
 							</div>
 							<div className="extra">
-								{this.state.genre}
+								{this.state.artist.genre}
 							</div>
 							<div className="play">
 								Play

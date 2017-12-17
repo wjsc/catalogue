@@ -2,13 +2,7 @@ import React from 'react';
 import './RandomTab.css';
 import RandomTabArtist from './RandomTabArtist';
 import RandomTabAlbum from './RandomTabAlbum';
-
-const defaultHeaders={
-	'Accept': 'application/json',
-	'Content-Type': 'application/json'
-};
-const ARTISTS_API='http://localhost:3001/artist/';
-const ALBUMS_API='http://localhost:3001/album/';
+import {fetchArtists, fetchAlbums} from '../../calls';
 
 class RandomTab extends React.Component {
 	constructor(props) {
@@ -19,23 +13,21 @@ class RandomTab extends React.Component {
 		};
 	}
 	componentWillMount(){
-		let options={
-			method:'GET',
-			headers: defaultHeaders
-		};	
-		fetch(ARTISTS_API, options)
-	    .then((res)=> res.json())
-	    .then((artists)=>this.setState({artists: artists}));
+		fetchArtists()
+		.then( artists => this.setState({
+			artists
+		}));
 
-	    fetch(ALBUMS_API, options)
-	    .then((res)=> res.json())
-	    .then((albums)=>this.setState({albums: albums}));
+		fetchAlbums()
+		.then( albums => this.setState({
+			albums
+		}))
 	}
-	renderRandomArtists(){
-		return this.state.artists.map((artist)=><RandomTabArtist key={artist.name} artist={artist}/>)
+	renderArtists(){
+		return this.state.artists.map((artist)=><RandomTabArtist key={artist._id} artist={artist}/>)
 	}
-	renderRandomAlbums(){
-		return this.state.albums.map((album)=><RandomTabAlbum key={album.title} album={album}/>)	
+	renderAlbums(){
+		return this.state.albums.map((album)=><RandomTabAlbum key={album._id} album={album}/>)	
 	}
 	render() {
 		return (
@@ -44,13 +36,13 @@ class RandomTab extends React.Component {
 					<div className="artists">
 						<div className="title">Artists</div>
 						<div className="results">
-							{this.renderRandomArtists()}
+							{this.renderArtists()}
 						</div>
 					</div>
 					<div className="albums">
 						<div className="title">Albums</div>
 						<div className="results">
-							{this.renderRandomAlbums()}
+							{this.renderAlbums()}
 						</div>
 					</div>
 				</div>

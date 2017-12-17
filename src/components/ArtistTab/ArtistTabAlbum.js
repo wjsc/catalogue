@@ -1,10 +1,21 @@
 import React from 'react';
 import ArtistTabAlbumTrack from './ArtistTabAlbumTrack';
 import AlbumCover from '../AlbumCover';
+import {fetchTracksByAlbum} from '../../calls.js';
 
 class ArtistTabAlbum extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			tracks: []
+		};
+	}
 	renderTracks(tracks){
-		return tracks ? tracks.map((track)=><ArtistTabAlbumTrack key={track.title} track={track}/>) : '';
+		return this.state.tracks ? this.state.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track}/>) : false;
+	}
+	componentDidMount(){
+		fetchTracksByAlbum(this.props.album._id)
+		.then(tracks => this.setState({tracks}));
 	}
 	render(){
 		return (
@@ -19,7 +30,7 @@ class ArtistTabAlbum extends React.Component {
 							{this.props.album.title}
 						</div>
 						<div className="tracks">
-							{this.renderTracks(this.props.album.tracks)}
+							{this.renderTracks()}
 						</div>
 					</div>
 			</div>
