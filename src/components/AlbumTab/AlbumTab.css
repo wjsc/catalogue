@@ -63,7 +63,7 @@
 .album_tab .tracks .track .track_name{
 	display: inline-block;
 }
-.album_tab .tracks .track .track_length{
+.album_tab .tracks .track .track_duration{
 	display: inline-block;
 	float:right;
 }

@@ -16,8 +16,8 @@ class AlbumTabTrack extends React.Component {
 				<div className="track_name">
 					{this.props.track.title}
 				</div>
-				<div className="track_length">
-					{this.props.track.length}
+				<div className="track_duration">
+					{this.props.track.duration}
 				</div>
 			</div>
 		);

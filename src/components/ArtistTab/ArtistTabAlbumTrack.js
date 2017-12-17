@@ -10,6 +10,9 @@ class ArtistTabAlbumTrack extends React.Component {
 				<div className="track_name">
 					{this.props.track.title}
 				</div>
+				<div className="track_duration">
+					{this.props.track.duration}
+				</div>
 			</div>
 		);
 	}

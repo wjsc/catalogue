@@ -87,3 +87,8 @@
     .artist_tab .albums .album .details .tracks .track .track_name{
         display: inline-block;
     }
+
+    .artist_tab .albums .album .details .tracks .track  .track_duration{
+        display: inline-block;
+        float:right;
+    }
