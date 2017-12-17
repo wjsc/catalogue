@@ -32,7 +32,7 @@ class RandomTab extends React.Component {
 	render() {
 		return (
 				<div className="tab random_tab">
-					<div className="title">RandomTab</div>
+					<div className="title"></div>
 					<div className="artists">
 						<div className="title">Artists</div>
 						<div className="results">
