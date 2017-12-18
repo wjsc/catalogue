@@ -1,5 +1,6 @@
 import React from 'react';
 import './FavoritesTab.css';
+import {playerLink} from '../playerLink';
 import FavoritesTabTrack from './FavoritesTabTrack';
 import {fetchFavorites, fetchTrack} from '../../calls.js';
 
@@ -28,7 +29,7 @@ class FavoritesTab extends React.Component {
 							<div className="name">
 								FavoritesTab
 							</div>
-							<div className="play">
+							<div className="play" onClick={() => playerLink.playTracks(this.state.tracks)}>
 								Play
 							</div>
 						</div>
