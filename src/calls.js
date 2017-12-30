@@ -1,9 +1,9 @@
-const SERVER = 'http://192.168.1.2:3001/';
-export const CDN_URL='http://192.168.1.2:3002/';
-const ARTIST_API = SERVER + 'artist/';
-const ALBUM_API = SERVER + 'album/';
-const TRACK_API = SERVER + 'track/';
-const FAVORITE_API = SERVER + 'favorite/';
+export const CDN_URL = process.env.REACT_APP_CDN_URL;
+const API = process.env.REACT_APP_API;
+const ARTIST_API =  API + 'artist/';
+const ALBUM_API = API + 'album/';
+const TRACK_API = API + 'track/';
+const FAVORITE_API = API + 'favorite/';
 
 const resjson = res => res.json();
 const queryString = obj => obj ? '?' + Object.keys(obj).reduce((a,k) => {a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&') : '';
