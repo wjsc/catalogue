@@ -105,18 +105,19 @@
 }
 .player .player_timeline .player_track_container .player_progress .progress-bar-wrapper{
 	display: inline-block;
-    height: 2px;
+    height: 6px;
     background-color: #323438;
     vertical-align: middle;
     order:2;
     flex-grow: 2;
-    margin-top: 8px;
+    margin-top: 6px;
     cursor:pointer;
 }
 .player .player_timeline .player_track_container .player_progress .progress-bar-wrapper .progress-bar{
 	background-color: #f54865;
-	height: 2px;
-	width: 0px;
+	height: 5px;
+    width: 0px;
+    transition: width 1s;
 }
 .player .player_timeline .player_track_container .player_progress .duration{
 	order:3;

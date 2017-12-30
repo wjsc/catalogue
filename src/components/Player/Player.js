@@ -12,20 +12,18 @@ import PlayerCurrentTime from './PlayerCurrentTime';
 import PlayerProgress from './PlayerProgress';
 import PlayerTotalTime from './PlayerTotalTime';
 
-const ID = Math.random(); 
-
 class Player extends React.Component {
     componentDidMount() {
-        this.element = document.getElementById(ID);
         this.element.onended = () => playerLink.next();
-        this.element.ontimeupdate = (ev) => playerLink.progressUpdate(ev.target.currentTime);
+        this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
     }
     componentWillReceiveProps(nextProps){
+        // console.log(nextProps.state.progress);
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
         nextProps.state.status !== this.props.state.status && (nextProps.state.status === 'play' ? this.element.play() : this.element.pause());
     }
     renderAudio(currentTrack){
-        return <audio autoPlay id={ID}><source key={currentTrack._id} src={CDN_URL+currentTrack.audio} type="audio/mpeg"/></audio>;
+        return <audio autoPlay ref={(element) => { this.element = element }}><source key={currentTrack._id} src={CDN_URL+currentTrack.audio} type="audio/mpeg"/></audio>;
     }
     render() {
         const currentTrack = this.props.state.tracks[this.props.state.current];
@@ -41,12 +39,12 @@ class Player extends React.Component {
                             <PlayerTrackTitle title={currentTrack.title}/>
                             <div className="player_progress">
                                 <PlayerCurrentTime value={formatDuration(this.props.state.progress)}/>
-                                <PlayerProgress value={this.props.state.progress/currentTrack.duration}/>
+                                <PlayerProgress progress={this.props.state.progress} duration={currentTrack.duration} 
+                                                onclick={(progress) => this.element.mozCurrentSampleOffset = progress}/>
                                 <PlayerTotalTime value={formatDuration( currentTrack.duration )}/>
                             </div>
                         </div>
                     </div>
-                    {/* <PlayerVolume value={this.props.state.volume}/> */}
                 </div>
             );
     }

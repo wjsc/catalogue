@@ -28,8 +28,5 @@ export const playerLink = {
     },
     progressUpdate: (progress) => {
         return this.component.setState( prevState => ({ progress }));
-    },
-    volumeChange: (volume) => {
-        return this.component.setState( prevState => ({ volume }));
     }
 }
