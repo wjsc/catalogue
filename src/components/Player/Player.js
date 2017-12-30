@@ -11,7 +11,6 @@ import PlayerTrackTitle from './PlayerTrackTitle';
 import PlayerCurrentTime from './PlayerCurrentTime';
 import PlayerProgress from './PlayerProgress';
 import PlayerTotalTime from './PlayerTotalTime';
-import PlayerVolume from './PlayerVolume';
 
 const ID = Math.random(); 
 
