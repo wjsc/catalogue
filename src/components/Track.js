@@ -19,8 +19,8 @@ class Track extends React.Component {
 			}
 		}));
 	}
-	componentWillReceiveProps(props){
-		this.setState({favorite: props.favorite})
+	componentWillReceiveProps(nextProps){
+		return nextProps.favorite !== this.state.favorite && this.setState({favorite: nextProps.favorite});
 	}
 	render(){
 		return (
