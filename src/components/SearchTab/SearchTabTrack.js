@@ -4,7 +4,7 @@ import Track from '../Track';
 class SearchTabTrack extends React.Component {
 	render(){
 		return (
-			<Track track={this.props.track} favorite={this.props.favorite}/>
+			<Track track={this.props.track} favorite={this.props.favorite} showArtist={true}/>
 		);
 	}
 }
