@@ -26,6 +26,7 @@ class Player extends React.Component {
     }
     render() {
         const currentTrack = this.props.state.tracks[this.props.state.current];
+        console.log(currentTrack);
         return (
                 <div className="player">
                     {this.renderAudio(currentTrack)}
@@ -35,7 +36,7 @@ class Player extends React.Component {
                     <div className="player_timeline">
                         <PlayerAlbumCover album={currentTrack.album}/>
                         <div className="player_track_container">
-                            <PlayerTrackTitle title={currentTrack.album.title+ ' - '+currentTrack.title}/>
+                            <PlayerTrackTitle title={currentTrack.artist.name+ ' - '+currentTrack.title}/>
                             <div className="player_progress">
                                 <PlayerCurrentTime value={formatDuration(this.props.state.progress)}/>
                                 <PlayerProgress progress={this.props.state.progress} duration={currentTrack.duration} 

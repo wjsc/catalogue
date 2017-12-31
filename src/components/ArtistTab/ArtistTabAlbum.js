@@ -4,7 +4,7 @@ import AlbumCover from '../AlbumCover';
 
 class ArtistTabAlbum extends React.Component {
 	renderTracks(){
-		return this.props.tracks ? this.props.tracks.map( track =><ArtistTabAlbumTrack key={track._id} track={track} album={this.props.album} favorite={this.props.favorites.find(f => f.track === track._id)}/>) : false;
+		return this.props.tracks ? this.props.tracks.map( track =><ArtistTabAlbumTrack key={track._id} artist={this.props.artist} track={track} album={this.props.album} favorite={this.props.favorites.find(f => f.track === track._id)}/>) : false;
 	}
 	render(){
 		return (

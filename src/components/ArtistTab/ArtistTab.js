@@ -28,7 +28,7 @@ class ArtistTab extends React.Component {
 				.then( favorites => this.setState({favorites}));
 	}
 	renderAlbums(){
-		return this.state.albums ? this.state.albums.map( album => <ArtistTabAlbum key={album._id} album={album} tracks={this.state.tracks.filter(t => t.album === album._id)} 																				favorites={this.state.favorites}/>) 
+		return this.state.albums ? this.state.albums.map( album => <ArtistTabAlbum key={album._id} artist={this.state.artist} album={album} tracks={this.state.tracks.filter(t => t.album === album._id)} 																				favorites={this.state.favorites}/>) 
 			: false;
 	}
 	render() {

@@ -3,28 +3,35 @@ import './AlbumTab.css';
 import {playerLink} from '../playerLink';
 import AlbumTabTrack from './AlbumTabTrack';
 import AlbumCover from '../AlbumCover';
-import {fetchAlbum, fetchTracksByAlbum, checkFavorites} from '../../calls.js';
+import {fetchArtist, fetchAlbum, fetchTracksByAlbum, checkFavorites} from '../../calls.js';
 
 class AlbumTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			artist: {},
 			album: {},
 			tracks: [],
 			favorites: []
 		};
 	}
 	componentWillMount(){
+
 		fetchAlbum(this.props.match.params._id)
 		.then(album => this.setState({album}))
-		.then( () => checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.album.tracks.join(',')))
-		.then( favorites => this.setState({favorites}));
-
+		.then( () => 
+			{
+			fetchArtist(this.state.album.artist)
+			.then(artist => this.setState({artist}));
+			checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.album.tracks.join(','))
+			.then( favorites => this.setState({favorites}));
+			}
+		);
 		fetchTracksByAlbum(this.props.match.params._id)
 		.then(tracks => this.setState({tracks}));
 	}
 	renderTracks(){
-		return this.state.tracks ? this.state.tracks.map((track)=><AlbumTabTrack key={track._id} track={track} album={this.state.album} favorite={this.state.favorites.find(f => f.track===track._id)}/>):false;
+		return this.state.tracks ? this.state.tracks.map((track)=><AlbumTabTrack key={track._id} track={track} album={this.state.album} artist={this.state.artist} favorite={this.state.favorites.find(f => f.track===track._id)}/>):false;
 	}
 	render() {
 		return (
@@ -35,7 +42,9 @@ class AlbumTab extends React.Component {
 						</div>
 						<div className="details_container">
 							<div className="year">
-								{this.state.album && this.state.album.year}
+								{(this.state.artist && this.state.artist.name)
+								+' - '+
+								(this.state.album && this.state.album.year)}
 							</div>
 							<div className="name">
 								{this.state.album && this.state.album.title}
