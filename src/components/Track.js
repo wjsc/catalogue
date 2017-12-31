@@ -7,7 +7,7 @@ class Track extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			favorite: false
+			favorite: this.props.favorite
 		}
 		this.toggleFavorite = this.toggleFavorite.bind(this);
 	}
@@ -15,7 +15,7 @@ class Track extends React.Component {
 		insertFavorite('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.track._id)
 		.then(res => this.setState(prevState => {
 			return {
-				favorite: !prevState.favorite
+				favorite: true
 			}
 		}));
 	}
