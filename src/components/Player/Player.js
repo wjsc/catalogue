@@ -24,8 +24,10 @@ class Player extends React.Component {
         this.element.onended = () => playerLink.next();
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
         this.element.onplay = () => {
-            fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
-            .then(album => console.log(album) || this.setState({ album }));
+            this.state.album._id != this.props.state.tracks[this.props.state.current].album._id && (
+                fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
+                .then(album => console.log(album) || this.setState({ album }))
+            );
             window.trackCurrentTrack(this.props.state.tracks[this.props.state.current])
         };
     }
