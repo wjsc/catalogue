@@ -3,13 +3,12 @@ import './AlbumTab.css';
 import {playerLink} from '../playerLink';
 import AlbumTabTrack from './AlbumTabTrack';
 import AlbumCover from '../AlbumCover';
-import {fetchArtist, fetchAlbum, fetchTracksByAlbum, checkFavorites} from '../../calls.js';
+import {fetchAlbum, fetchTracksByAlbum, checkFavorites} from '../../calls.js';
 
 class AlbumTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			artist: {},
 			album: {},
 			tracks: [],
 			favorites: []
@@ -21,8 +20,6 @@ class AlbumTab extends React.Component {
 		.then(album => this.setState({album}))
 		.then( () => 
 			{
-			fetchArtist(this.state.album.artist)
-			.then(artist => this.setState({artist}));
 			checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.album.tracks.join(','))
 			.then( favorites => this.setState({favorites}));
 			}
@@ -41,21 +38,14 @@ class AlbumTab extends React.Component {
 							<AlbumCover album={this.state.album}/>
 						</div>
 						<div className="details_container">
-							<div className="year">
-								{(this.state.artist && this.state.artist.name)
-								+' - '+
-								(this.state.album && this.state.album.year)}
+							<div className="artist">
+								{this.state.album.artist && this.state.album.artist.name}
 							</div>
 							<div className="name">
-								{this.state.album && this.state.album.title}
+								{this.state.album.title}
 							</div>
 							<div className="play play_album" 
-								onClick={() => playerLink.playTracks(
-									this.state.tracks.map(t => {
-										t.album=this.state.album;
-										t.artist=this.state.artist;
-										return t;
-								}))}>
+								onClick={() => playerLink.playTracks(this.state.tracks)}>
 								Play
 							</div>
 						</div>

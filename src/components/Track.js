@@ -24,7 +24,7 @@ class Track extends React.Component {
 	}
 	render(){
 		return (
-			<div className="track">
+			<div className="track" onDoubleClick={() => playerLink.playTrack(this.props.track)}>
 				<i className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(this.props.track)}></i>
 				<i className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(this.props.track)}></i>
 				<i className={this.state.favorite ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}
