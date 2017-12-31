@@ -23,7 +23,8 @@ class Track extends React.Component {
 		return nextProps.favorite !== this.state.favorite && this.setState({favorite: nextProps.favorite});
 	}
 	render(){
-		this.props.track.album = this.props.album;
+		const track = {...this.props.track};
+		track.album = this.props.album;
 		return (
 			<div className="track">
 				<i className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(this.props.track)}></i>
