@@ -2,7 +2,7 @@ import React from 'react';
 import './Player.css';
 import {playerLink} from '../playerLink';
 import {formatDuration} from '../../lib'
-// import {formatDuration} from '../../calls'
+import {fetchAlbum} from '../../calls'
 import {CDN_URL} from '../../calls'
 import PlayerPrev from './PlayerPrev';
 import PlayerPlayPause from './PlayerPlayPause';
@@ -14,13 +14,20 @@ import PlayerProgress from './PlayerProgress';
 import PlayerTotalTime from './PlayerTotalTime';
 
 class Player extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            album: {}
+        }
+    }
     componentDidMount() {
         this.element.onended = () => playerLink.next();
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
-        this.element.onplay = () => window.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
-    }
-    getData() {
-
+        this.element.onplay = () => {
+            fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
+            .then(album => console.log(album) || this.setState({ album }));
+            window.trackCurrentTrack(this.props.state.tracks[this.props.state.current])
+        };
     }
     componentWillReceiveProps(nextProps){
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
@@ -38,7 +45,7 @@ class Player extends React.Component {
                     <PlayerPlayPause onclick={playerLink.togglePlay} status={this.props.state.status}/>
                     <PlayerNext onclick={playerLink.next} active={this.props.state.tracks[this.props.state.current +1]}/>
                     <div className="player_timeline">
-                        {/* <PlayerAlbumCover album={currentTrack.album}/> */}
+                        {this.state.album && <PlayerAlbumCover album={this.state.album}/>}
                         <div className="player_track_container">
                             <PlayerTrackTitle title={currentTrack.artist.name+ ' - '+currentTrack.title}/>
                             <div className="player_progress">
