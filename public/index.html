@@ -6,10 +6,21 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-111696291-1');
+    gtag('config', 'UA-111696291-1',{
+      'custom_map': {'dimension1': 'artist', 'dimension2': 'track'}
+      
+    });
     window.onpopstate = function (ev) {
       gtag('config', 'UA-111696291-1', {'page_path': window.location.pathname + window.location.hash });
     };
+    trackCurrentTrack = (currentTrack) => {
+      gtag('event', 'play', 
+                  {   
+                      'artist': currentTrack.artist.name,
+                      'track': currentTrack.title
+                  }
+          );
+    }
   </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

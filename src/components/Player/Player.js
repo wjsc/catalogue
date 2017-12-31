@@ -16,6 +16,7 @@ class Player extends React.Component {
     componentDidMount() {
         this.element.onended = () => playerLink.next();
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
+        this.element.onplay = () => window.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
     }
     componentWillReceiveProps(nextProps){
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
