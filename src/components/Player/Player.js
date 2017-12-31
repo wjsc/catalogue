@@ -26,7 +26,6 @@ class Player extends React.Component {
     }
     render() {
         const currentTrack = this.props.state.tracks[this.props.state.current];
-        console.log(currentTrack);
         return (
                 <div className="player">
                     {this.renderAudio(currentTrack)}

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="es">
   <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111696291-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-111696291-1');
+    window.onpopstate = function (ev) {
+      gtag('config', 'UA-111696291-1', {'page_path': window.location.pathname + window.location.hash });
+    };
+  </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
