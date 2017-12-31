@@ -49,7 +49,13 @@ class AlbumTab extends React.Component {
 							<div className="name">
 								{this.state.album && this.state.album.title}
 							</div>
-							<div className="play play_album" onClick={() => playerLink.playTracks(this.state.tracks)}>
+							<div className="play play_album" 
+								onClick={() => playerLink.playTracks(
+									this.state.tracks.map(t => {
+										t.album=this.state.album;
+										t.artist=this.state.artist;
+										return t;
+								}))}>
 								Play
 							</div>
 						</div>
