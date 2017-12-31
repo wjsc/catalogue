@@ -6,7 +6,7 @@ import {CDN_URL} from '../../calls'
 import PlayerPrev from './PlayerPrev';
 import PlayerPlayPause from './PlayerPlayPause';
 import PlayerNext from './PlayerNext';
-// import PlayerAlbumCover from './PlayerAlbumCover';
+import PlayerAlbumCover from './PlayerAlbumCover';
 import PlayerTrackTitle from './PlayerTrackTitle';
 import PlayerCurrentTime from './PlayerCurrentTime';
 import PlayerProgress from './PlayerProgress';
@@ -18,7 +18,6 @@ class Player extends React.Component {
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
     }
     componentWillReceiveProps(nextProps){
-        // console.log(nextProps.state.progress);
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
         nextProps.state.status !== this.props.state.status && (nextProps.state.status === 'play' ? this.element.play() : this.element.pause());
     }
@@ -34,9 +33,9 @@ class Player extends React.Component {
                     <PlayerPlayPause onclick={playerLink.togglePlay} status={this.props.state.status}/>
                     <PlayerNext onclick={playerLink.next} active={this.props.state.tracks[this.props.state.current +1]}/>
                     <div className="player_timeline">
-                        {/* <PlayerAlbumCover album={this.state.album}/> */}
+                        <PlayerAlbumCover album={currentTrack.album}/>
                         <div className="player_track_container">
-                            <PlayerTrackTitle title={currentTrack.title}/>
+                            <PlayerTrackTitle title={currentTrack.album.title+ ' - '+currentTrack.title}/>
                             <div className="player_progress">
                                 <PlayerCurrentTime value={formatDuration(this.props.state.progress)}/>
                                 <PlayerProgress progress={this.props.state.progress} duration={currentTrack.duration} 

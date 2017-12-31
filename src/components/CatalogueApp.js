@@ -11,8 +11,7 @@ class CatalogueApp extends React.Component {
 			status: 'stop', // play | pause | stop
 			tracks: [],
 			current: 0,
-			progress: 0,
-			volume: 1 // 0...1
+			progress: 0
 		};
 		playerLink.connect(this);
 	}

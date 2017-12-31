@@ -27,6 +27,6 @@ export const playerLink = {
         return false;
     },
     progressUpdate: (progress) => {
-        return this.component.setState( prevState => ({ progress }));
+        return this.component.setState({ progress });
     }
 }
