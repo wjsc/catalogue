@@ -23,19 +23,17 @@ class Track extends React.Component {
 		return nextProps.favorite !== this.state.favorite && this.setState({favorite: nextProps.favorite});
 	}
 	render(){
-		let track = {...this.props.track};
-		track.album = {...this.props.album};
-		track.artist = {...this.props.artist};
 		return (
 			<div className="track">
-				<i className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(track)}></i>
-				<i className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(track)}></i>
+				<i className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(this.props.track)}></i>
+				<i className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(this.props.track)}></i>
 				<i className={this.state.favorite ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}
 					onClick={this.toggleFavorite }></i>
 				<div className="track_number">
 					{this.props.track.no}
 				</div>
 				<div className="track_name">
+					{this.props.showArtist && this.props.track.artist.name+' - '}
 					{this.props.track.title}
 				</div>
 				<div className="track_duration">

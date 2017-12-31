@@ -5,7 +5,7 @@ class FavoritesTabTrack extends React.Component {
 	render(){
 		delete this.props.track.no;
 		return (
-			<Track track={this.props.track} favorite={true}/>
+			<Track track={this.props.track} favorite={true} showArtist={true}/>
 		);
 	}
 }

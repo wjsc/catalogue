@@ -2,6 +2,7 @@ import React from 'react';
 import './Player.css';
 import {playerLink} from '../playerLink';
 import {formatDuration} from '../../lib'
+// import {formatDuration} from '../../calls'
 import {CDN_URL} from '../../calls'
 import PlayerPrev from './PlayerPrev';
 import PlayerPlayPause from './PlayerPlayPause';
@@ -17,6 +18,9 @@ class Player extends React.Component {
         this.element.onended = () => playerLink.next();
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
         this.element.onplay = () => window.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
+    }
+    getData() {
+
     }
     componentWillReceiveProps(nextProps){
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
@@ -34,7 +38,7 @@ class Player extends React.Component {
                     <PlayerPlayPause onclick={playerLink.togglePlay} status={this.props.state.status}/>
                     <PlayerNext onclick={playerLink.next} active={this.props.state.tracks[this.props.state.current +1]}/>
                     <div className="player_timeline">
-                        <PlayerAlbumCover album={currentTrack.album}/>
+                        {/* <PlayerAlbumCover album={currentTrack.album}/> */}
                         <div className="player_track_container">
                             <PlayerTrackTitle title={currentTrack.artist.name+ ' - '+currentTrack.title}/>
                             <div className="player_progress">
