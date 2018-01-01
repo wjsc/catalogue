@@ -1,5 +1,5 @@
 import React from 'react';
-import {insertFavorite} from '../calls.js';
+import {insertFavorite, removeFavorite} from '../calls.js';
 import {formatDuration} from '../lib.js';
 import {playerLink} from './playerLink';
 
@@ -7,20 +7,20 @@ class Track extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			received: false,
 			favorite: this.props.favorite
 		}
 		this.toggleFavorite = this.toggleFavorite.bind(this);
 	}
 	toggleFavorite(){
-		insertFavorite('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.track._id)
-		.then(res => this.setState(prevState => {
-			return {
-				favorite: true
-			}
-		}));
+		return this.state.favorite ? 
+		removeFavorite('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.track._id)
+		.then(res => this.setState( { favorite: false } ))
+		: insertFavorite('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.track._id)
+		.then(res => this.setState( { favorite: true } ));
 	}
 	componentWillReceiveProps(nextProps){
-		return nextProps.favorite !== this.state.favorite && this.setState({favorite: nextProps.favorite});
+		!this.received && this.setState({received: true, favorite: nextProps.favorite});
 	}
 	render(){
 		return (

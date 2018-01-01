@@ -2,8 +2,8 @@ front:
   environment:
     TZ: "America/Argentina/Buenos_Aires"
     NODE_ENV: "development"
-    REACT_APP_API: "http://localhost:3001/"
-    REACT_APP_CDN_URL: "http://localhost:3002/"
+    REACT_APP_API: "http://192.168.1.2:3001/"
+    REACT_APP_CDN_URL: "http://192.168.1.2:3002/"
   build: ./docker
   working_dir: /var/www/catalogue
   ports:

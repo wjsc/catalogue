@@ -14,6 +14,8 @@ const options={ method:'GET', headers: defaultHeaders};
 
 const get = (endpoint, params) => fetch(endpoint + queryString(params), {method: 'GET', options: options, headers: defaultHeaders}).then(resjson);
 const post = (endpoint, body) => fetch(endpoint, {method: 'POST', options: options, headers: defaultHeaders, body: JSON.stringify(body)}).then(resjson);
+const del = (endpoint, body) => fetch(endpoint, {method: 'DELETE', options: options, headers: defaultHeaders, body: JSON.stringify(body)}).then(resjson);
+
 
 export const fetchArtists = () => get(ARTIST_API);
 export const fetchAlbums = () => get(ALBUM_API);
@@ -37,10 +39,6 @@ export const fetchHistory = (user) => get(HISTORY_API+'user/'+user);
 export const insertFavorite = (user, track) => post(FAVORITE_API,{ user, track });
 export const insertHistory = (user, track) => post(HISTORY_API,{ user, track, date: new Date().toISOString() });
 
-export const removeFavorite = (user, track) => fetch(FAVORITE_API+'',{
-        method: 'DEL',
-        headers: defaultHeaders,
-        body: { user, track }
-    })
+export const removeFavorite = (user, track) => del(FAVORITE_API,{ user, track } );
 
 export const checkFavorites = (user, tracks) => get(FAVORITE_API, { user, tracks });

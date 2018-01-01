@@ -27,7 +27,7 @@ class Player extends React.Component {
             insertHistory('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.state.tracks[this.props.state.current]._id);
             this.state.album._id !== this.props.state.tracks[this.props.state.current].album._id && (
                 fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
-                .then(album => console.log(album) || this.setState({ album }))
+                .then(album => this.setState({ album }))
             );
             window.trackCurrentTrack(this.props.state.tracks[this.props.state.current])
         };
