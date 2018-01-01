@@ -1,6 +1,7 @@
 import React from 'react';
 import './HistoryTab.css';
 import HistoryTabTrack from './HistoryTabTrack';
+import {fetchHistory, fetchTrack} from '../../calls.js';
 
 class HistoryTab extends React.Component {
 	constructor(props) {
@@ -9,8 +10,15 @@ class HistoryTab extends React.Component {
 			 tracks :[ ]
 		};
 	}
+	componentDidMount(){
+		fetchHistory('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF')
+		.then( history => history.map(history => history.track ))
+		.then( tracks => tracks.join(','))
+		.then( tracks => fetchTrack(tracks))
+		.then( tracks => this.setState({tracks}));
+	}
 	renderTracks(){
-		return this.state.tracks ? this.state.tracks.map((track)=><HistoryTabTrack key={track} track={track}/>) : false;
+		return this.state.tracks ? this.state.tracks.map((track)=><HistoryTabTrack key={track._id} track={track}/>) : false;
 	}
 	render() {
 		return (

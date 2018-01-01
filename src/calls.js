@@ -4,6 +4,7 @@ const ARTIST_API =  API + 'artist/';
 const ALBUM_API = API + 'album/';
 const TRACK_API = API + 'track/';
 const FAVORITE_API = API + 'favorite/';
+const HISTORY_API = API + 'history/';
 
 const resjson = res => res.json();
 const queryString = obj => obj ? '?' + Object.keys(obj).reduce((a,k) => {a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&') : '';
@@ -31,8 +32,10 @@ export const searchAlbums = (keyword) => get(ALBUM_API+'search/'+keyword);
 export const searchTracks = (keyword) => get(TRACK_API+'search/'+keyword);
 
 export const fetchFavorites = (user) => get(FAVORITE_API+'user/'+user);
+export const fetchHistory = (user) => get(HISTORY_API+'user/'+user);
 
 export const insertFavorite = (user, track) => post(FAVORITE_API,{ user, track });
+export const insertHistory = (user, track) => post(HISTORY_API,{ user, track });
 
 export const removeFavorite = (user, track) => fetch(FAVORITE_API+'',{
         method: 'DEL',

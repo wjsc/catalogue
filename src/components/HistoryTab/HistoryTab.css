@@ -23,6 +23,7 @@
 .history_tab .tracks{
 	
 }
+
 .history_tab .tracks .track{
 	padding-left: 30px;
 }
@@ -47,7 +48,7 @@
 .history_tab .tracks .track .track_name{
 	display: inline-block;
 }
-.history_tab .tracks .track .track_length{
+.history_tab .tracks .track .track_duration{
 	display: inline-block;
 	float:right;
 }
