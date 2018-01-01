@@ -1,7 +1,7 @@
 import React from 'react';
 import './AlbumTab.css';
 import {playerLink} from '../playerLink';
-import AlbumTabTrack from './AlbumTabTrack';
+import Track from '../Track';
 import AlbumCover from '../AlbumCover';
 import {fetchAlbum, fetchTracksByAlbum, checkFavorites} from '../../calls.js';
 
@@ -28,7 +28,7 @@ class AlbumTab extends React.Component {
 		.then(tracks => this.setState({tracks}));
 	}
 	renderTracks(){
-		return this.state.tracks ? this.state.tracks.map((track)=><AlbumTabTrack key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)}/>):false;
+		return this.state.tracks ? this.state.tracks.map((track)=><Track showNo={true} key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)}/>):false;
 	}
 	render() {
 		return (

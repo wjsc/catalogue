@@ -2,7 +2,7 @@ import React from 'react';
 import './SearchTab.css';
 import SearchTabArtist from './SearchTabArtist';
 import SearchTabAlbum from './SearchTabAlbum';
-import SearchTabTrack from './SearchTabTrack';
+import Track from '../Track';
 import {searchArtists, searchAlbums, searchTracks, checkFavorites} from '../../calls';
 
 class SearchTab extends React.Component {
@@ -35,7 +35,7 @@ class SearchTab extends React.Component {
 		return this.state.albums ? this.state.albums.map( album =><SearchTabAlbum key={album._id} album={album}/>) : false;
 	}
 	renderTracks(){
-		return this.state.tracks ? this.state.tracks.map( track =><SearchTabTrack key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)} />) : false;
+		return this.state.tracks ? this.state.tracks.map( track =><Track showArtist={true} key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)} />) : false;
 	}
 	render() {
 		return (

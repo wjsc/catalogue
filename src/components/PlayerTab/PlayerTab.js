@@ -1,6 +1,6 @@
 import React from 'react';
 import './PlayerTab.css';
-import PlayerTabTrack from './PlayerTabTrack';
+import Track from '../Track';
 import {playerLink} from '../playerLink';
 import {fetchHistory, fetchTrack, checkFavorites} from '../../calls.js';
 
@@ -39,7 +39,7 @@ class PlayerTab extends React.Component {
 		.then( favorites => this.setState({favorites}));
 	}
 	renderTracks(tracks){
-		return tracks ? tracks.map((track)=><PlayerTabTrack key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
+		return tracks ? tracks.map((track)=><Track key={track._id} track={track} showArtist={true} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
 	}
 	render() {
 		return (

@@ -37,9 +37,7 @@ class Track extends React.Component {
 				<i className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(this.props.track)}></i>
 				<i className={this.isFavorited() ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}
 					onClick={this.toggleFavorite }></i>
-				<div className="track_number">
-					{this.props.track.no}
-				</div>
+				{ this.props.showNo ? <div className="track_number">{this.props.track.no}</div> : false}
 				<div className="track_name">
 					{this.props.showArtist && this.props.track.artist.name+' - '}
 					{this.props.track.title}
