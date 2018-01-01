@@ -35,7 +35,7 @@ export const fetchFavorites = (user) => get(FAVORITE_API+'user/'+user);
 export const fetchHistory = (user) => get(HISTORY_API+'user/'+user);
 
 export const insertFavorite = (user, track) => post(FAVORITE_API,{ user, track });
-export const insertHistory = (user, track) => post(HISTORY_API,{ user, track });
+export const insertHistory = (user, track) => post(HISTORY_API,{ user, track, date: new Date().toISOString() });
 
 export const removeFavorite = (user, track) => fetch(FAVORITE_API+'',{
         method: 'DEL',

@@ -7,18 +7,18 @@ class HistoryTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			 tracks :[],
+			 tracks : [],
 			 favorites: []
 		};
 	}
 	componentDidMount(){
 		fetchHistory('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF')
-		.then( history => history.map(history => history.track ))
-		.then( tracks => tracks.join(','))
-		.then( tracks => {
-			checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', tracks)
+		.then( history => {
+			checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', history.map(h => h.track).join(','))
 			.then( favorites => this.setState({favorites}));
-			fetchTrack(tracks)
+			fetchTrack(history.map(h => h.track).join(','))
+			.then( tracks => tracks.map(t => { t.date = history.find(h => h.track === t._id).date; return t;}))
+			.then( tracks => tracks.sort((a, b ) => a.date < b.date ? 1 : -1))
 			.then( tracks => this.setState({tracks}));
 		})
 		
