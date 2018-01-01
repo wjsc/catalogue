@@ -19,7 +19,7 @@ class FavoritesTab extends React.Component {
 		.then( tracks => this.setState({tracks}));
 	}
 	renderTracks(){
-		return this.state.tracks ? this.state.tracks.map((track)=><Track key={track._id} showArtist={true} track={track}/>) : false;
+		return this.state.tracks ? this.state.tracks.map((track)=><Track key={track._id} showArtist={true} track={track} favorite={true}/>) : false;
 	}
 	render() {
 		return (
