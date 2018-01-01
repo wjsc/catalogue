@@ -11,6 +11,7 @@ class Track extends React.Component {
 			favorite: this.props.favorite
 		}
 		this.toggleFavorite = this.toggleFavorite.bind(this);
+		this.isCurrentTrack = this.isCurrentTrack.bind(this);
 	}
 	toggleFavorite(){
 		return this.state.favorite ? 
@@ -22,9 +23,12 @@ class Track extends React.Component {
 	componentWillReceiveProps(nextProps){
 		!this.received && this.setState({received: true, favorite: nextProps.favorite});
 	}
+	isCurrentTrack(){
+		return playerLink.getCurrentTrack() && playerLink.getCurrentTrack()._id===this.props.track._id;
+	}
 	render(){
 		return (
-			<div className={this.props.current?'current track':'track'} onDoubleClick={() => playerLink.playTrack(this.props.track)}>
+			<div className={this.isCurrentTrack()?'current track':'track'} onDoubleClick={() => playerLink.playTrack(this.props.track)}>
 				<i className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(this.props.track)}></i>
 				<i className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(this.props.track)}></i>
 				<i className={this.state.favorite ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}

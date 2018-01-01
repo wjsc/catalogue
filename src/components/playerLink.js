@@ -32,7 +32,7 @@ export const playerLink = {
     getTracks : () => {
         return this.component.state.tracks;
     },
-    getCurrent : () => {
-        return this.component.state.current;
+    getCurrentTrack : () => {
+        return this.component.state.tracks[this.component.state.current];
     }
 }
