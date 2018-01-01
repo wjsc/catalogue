@@ -21,7 +21,7 @@ class PlayerTab extends React.Component {
 	}
 	setPlayerTracks() {
 		this.setState( { view: 'next', tracks: playerLink.getTracks()} , 
-			this.setFavorites(this.state.tracks.map(t => t._id).join(','))
+			() => this.setFavorites(this.state.tracks.map(t => t._id).join(','))
 		);
 	}
 	setHistory() {
