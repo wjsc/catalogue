@@ -15,7 +15,7 @@ class FavoritesTab extends React.Component {
 		fetchFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF')
 		.then( favorites => favorites.map(favorite => favorite.track ))
 		.then( tracks => tracks.join(','))
-		.then( tracks => fetchTracks(tracks))
+		.then( tracks => tracks && fetchTracks(tracks))
 		.then( tracks => this.setState({tracks}));
 	}
 	renderTracks(){
