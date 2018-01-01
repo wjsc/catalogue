@@ -2,7 +2,7 @@ import React from 'react';
 import './FavoritesTab.css';
 import {playerLink} from '../playerLink';
 import Track from '../Track';
-import {fetchFavorites, fetchTrack} from '../../calls.js';
+import {fetchFavorites, fetchTracks} from '../../calls.js';
 
 class FavoritesTab extends React.Component {
 	constructor(props) {
@@ -15,7 +15,7 @@ class FavoritesTab extends React.Component {
 		fetchFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF')
 		.then( favorites => favorites.map(favorite => favorite.track ))
 		.then( tracks => tracks.join(','))
-		.then( tracks => fetchTrack(tracks))
+		.then( tracks => fetchTracks(tracks))
 		.then( tracks => this.setState({tracks}));
 	}
 	renderTracks(){

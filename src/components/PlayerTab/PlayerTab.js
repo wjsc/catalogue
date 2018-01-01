@@ -2,7 +2,7 @@ import React from 'react';
 import './PlayerTab.css';
 import Track from '../Track';
 import {playerLink} from '../playerLink';
-import {fetchHistory, fetchTrack, checkFavorites} from '../../calls.js';
+import {fetchHistory, fetchTracks, checkFavorites} from '../../calls.js';
 
 class PlayerTab extends React.Component {
 	constructor(props) {
@@ -28,7 +28,7 @@ class PlayerTab extends React.Component {
 		fetchHistory('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF')
 		.then( history => {
 			this.setFavorites(history.map(h => h.track).join(','));
-			fetchTrack(history.map(h => h.track).join(','))
+			fetchTracks(history.map(h => h.track).join(','))
 			.then( tracks => tracks.map(t => { t.date = history.find(h => h.track === t._id).date; return t;}))
 			.then( tracks => tracks.sort((a, b ) => a.date < b.date ? 1 : -1))
 			.then( tracks => this.setState({view: 'history', tracks}));
