@@ -7,7 +7,7 @@ class AlbumCover extends React.Component {
 		return this.props.album.cover ? 
 		(
 			<Link to={"/album/"+this.props.album._id}>
-				<div className="cover_wrapper" title={this.props.album.title}>
+				<div className="cover_wrapper" title={this.props.album.artist.name+' - ' +this.props.album.title}>
 					<img className="cover" alt='Album Cover' src={CDN_URL+this.props.album.cover}/>
 				</div>
 			</Link>
