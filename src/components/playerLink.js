@@ -29,7 +29,10 @@ export const playerLink = {
     progressUpdate: (progress) => {
         return this.component.setState({ progress });
     },
-    getNextTracks : () => {
-        return this.component.state.tracks.slice(this.component.state.current);
+    getTracks : () => {
+        return this.component.state.tracks;
+    },
+    getCurrent : () => {
+        return this.component.state.current;
     }
 }

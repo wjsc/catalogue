@@ -33,16 +33,16 @@ class RandomTab extends React.Component {
 		return (
 				<div className="tab random_tab">
 					<div className="title"></div>
-					<div className="artists">
-						<div className="title">Artists</div>
-						<div className="results">
-							{this.renderArtists()}
-						</div>
-					</div>
 					<div className="albums">
 						<div className="title">Albums</div>
 						<div className="results">
 							{this.renderAlbums()}
+						</div>
+					</div>
+					<div className="artists">
+						<div className="title">Artists</div>
+						<div className="results">
+							{this.renderArtists()}
 						</div>
 					</div>
 				</div>

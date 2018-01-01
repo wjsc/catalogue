@@ -96,6 +96,9 @@ a{
 	padding-top: 12px;
 	padding-bottom: 12px;
 }
+.track.current{
+	color:#f54865;
+}
 .track:last-child{
 }
 .track:hover{
