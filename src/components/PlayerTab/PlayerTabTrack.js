@@ -1,7 +1,7 @@
 import React from 'react';
 import Track from '../Track';
 
-class HistoryTabTrack extends React.Component {
+class PlayerTabTrack extends React.Component {
 	render(){
 		return (
 			<Track track={this.props.track} favorite={this.props.favorite} showArtist={true}/>
@@ -9,4 +9,4 @@ class HistoryTabTrack extends React.Component {
 	}
 }
 
-export default HistoryTabTrack;
+export default PlayerTabTrack;

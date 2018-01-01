@@ -1,0 +1,54 @@
+.player_tab .views {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	background-color: #0c0c0c;
+	text-align: center;
+}
+
+.player_tab .views div{
+	display: inline-block;
+	cursor: pointer;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.player_tab .views .active{
+	border-bottom: 4px solid #f54865;
+}
+
+.player_tab .tracks{
+	
+}
+
+.player_tab .tracks .track{
+	padding-left: 30px;
+}
+.player_tab .tracks .track .play_track {
+	display: inline-block;
+	margin-right: 10px;
+}
+.player_tab .tracks .track .add_track {
+	display: inline-block;
+	margin-right: 10px;
+}
+.player_tab .tracks .track .fav_track {
+	display: inline-block;
+	margin-right: 10px;
+}
+.player_tab .tracks .track .track_number{
+	width:20px;
+	text-align: right;
+	display: inline-block;
+	margin-right: 10px;
+}
+.player_tab .tracks .track .track_name{
+	display: inline-block;
+}
+.player_tab .tracks .track .track_duration{
+	display: inline-block;
+	float:right;
+}

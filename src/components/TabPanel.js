@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import RandomTab from './RandomTab/RandomTab';
 import SearchTab from './SearchTab/SearchTab';
 import FavoritesTab from './FavoritesTab/FavoritesTab';
-import HistoryTab from './HistoryTab/HistoryTab';
+import PlayerTab from './PlayerTab/PlayerTab';
 import ArtistTab from './ArtistTab/ArtistTab';
 import AlbumTab from './AlbumTab/AlbumTab';
 
@@ -16,7 +16,7 @@ class TabPanel extends React.Component {
 				      <Route exact path='/' component={RandomTab}/>
 				      <Route path='/search' component={SearchTab}/>
 				      <Route path='/favorites' component={FavoritesTab}/>
-				      <Route path='/history' component={HistoryTab}/>
+				      <Route path='/player' component={PlayerTab}/>
 				      <Route path='/artist/:_id' component={ArtistTab}/>
 				      <Route path='/album/:_id' component={AlbumTab}/>
 			    </Switch>
