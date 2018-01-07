@@ -29,7 +29,7 @@ class PlayerTab extends React.Component {
 		.then( history => {
 			this.setFavorites(history.map(h => h.track).join(','));
 			fetchTracks(history.map(h => h.track).join(','))
-			.then( tracks => tracks.map(t => { t.date = history.find(h => h.track === t._id).date; return t;}))
+			.then( tracks => history.map(h => ({...tracks.find(t => t._id === h.track), date: h.date})))
 			.then( tracks => tracks.sort((a, b ) => a.date < b.date ? 1 : -1))
 			.then( tracks => this.setState({view: 'history', tracks}));
 		})
@@ -39,7 +39,7 @@ class PlayerTab extends React.Component {
 		.then( favorites => this.setState({favorites}));
 	}
 	renderTracks(tracks){
-		return tracks ? tracks.map((track)=><Track key={track._id} track={track} showArtist={true} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
+		return tracks ? tracks.map((track)=><Track key={track.date || track._id} track={track} showArtist={true} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
 	}
 	render() {
 		return (
