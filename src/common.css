@@ -20,7 +20,7 @@ a{
 /*SIDEBAR*/
 .sidebar{
 	position: fixed;
-	width: 90px;
+	width: 70px;
 	height: 100vh;
 	left: 0;
 	background-color: #181819;
@@ -43,7 +43,7 @@ a{
 .sidebar .sidebar-logout{
 	bottom: 46px;
 	position: absolute;
-	width: 90px;
+	width: 70px;
 }
 .sidebar .sidebar-logout:hover{
 	text-decoration: underline;
@@ -65,7 +65,7 @@ a{
 	background-color: #121314;
 	padding-bottom: 46px;
 	right:10px;
-	left: 90px;
+	left: 70px;
 }
 
 .play{

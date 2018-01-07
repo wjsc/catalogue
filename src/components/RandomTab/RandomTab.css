@@ -21,7 +21,7 @@
         padding-left: 30px;
     }
     .random_tab .artists .title{
-        margin-left: 5px;
+        margin-left: 40px;
         font-size: 15px;
         color: #f54865;
         margin-top: 15px;
@@ -36,7 +36,7 @@
         position: relative;
         display: inline-block;
         background-color: #0c0c0c;
-        margin: 5px;
+        margin: 40px;
         cursor: pointer;
     }
     .random_tab .artists .results .artist:hover{
@@ -61,7 +61,7 @@
         padding-left: 30px;
     }
     .random_tab .albums .title{
-        margin-left: 5px;
+        margin-left: 40px;
         font-size: 15px;
         color: #f54865;
         margin-top: 15px;
@@ -75,7 +75,7 @@
         display: inline-block;
         width: 15%;
         vertical-align: top;
-        padding:5px;
+        padding: 40px;
     
     }
     .random_tab .albums .results .cover_wrapper:hover{
