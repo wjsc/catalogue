@@ -2,8 +2,9 @@ import {config} from '../../config/default.js';
 import React from 'react';
 import { FirebaseAuth } from 'react-firebaseui';
 import firebase from 'firebase';
+import {userLink} from '../userLink';
 import './firebaseui-overrides.global.css';
-import './SignInScreen.css';
+import './UserAccess.css';
 
 // Configure Firebase.
 firebase.initializeApp(config.firebase);
@@ -23,7 +24,7 @@ class SignInScreen extends React.Component {
     ],
     // Sets the CatalogueApp `signedIn` state property to `true` once signed in.
     callbacks: {
-      signInSuccess: this.props.signInSuccessCallback
+      signInSuccess: userLink.signInSuccessCallback
     }
   };
   

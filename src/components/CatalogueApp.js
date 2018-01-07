@@ -19,16 +19,18 @@ class CatalogueApp extends React.Component {
 		};
 		playerLink.connect(this);
 		userLink.connect(this);
-		this.signInSuccessCallback = this.signInSuccessCallback.bind(this);
 	}
 	signInSuccessCallback(result) {
 		this.setState({signedIn: true, uid: result.uid});
 		return false;
 	}
+	signOut(){
+		this.setState({signedIn: false, uid: false});
+	}
 	render() {
 	    return (
 			! this.state.signedIn 
-			? < SignInScreen signInSuccessCallback={this.signInSuccessCallback}/>
+			? < SignInScreen />
 	    	: 	<div className="catalogue">
 					<Sidebar/>
 					<TabPanel/>
