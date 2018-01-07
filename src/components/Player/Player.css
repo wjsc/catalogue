@@ -49,6 +49,7 @@
     flex-grow: 2;
     order:4;
     display: flex;
+    margin-right: 100px;
 }
 .player .player_timeline .player_track_cover{
 	display: inline-block;
