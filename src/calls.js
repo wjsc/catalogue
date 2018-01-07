@@ -1,7 +1,8 @@
 import {userLink} from './components/userLink';
+import {config} from './config/default.js';
 
-export const CDN_URL = process.env.REACT_APP_CDN_URL;
-const API = process.env.REACT_APP_API;
+export const CDN_URL = config.cdn_url;
+const API = config.api_url;
 const ARTIST_API =  API + 'artist/';
 const ALBUM_API = API + 'album/';
 const TRACK_API = API + 'track/';

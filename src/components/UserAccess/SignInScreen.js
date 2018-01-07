@@ -1,18 +1,10 @@
 import React from 'react';
 import { FirebaseAuth } from 'react-firebaseui';
 import firebase from 'firebase';
+import {config} from '../../config/default.js';
 
 // Configure Firebase.
-const config = {
-  apiKey: "AIzaSyBa9gaXmOAt5beEjWVnsZwPCSFu59Ox5pE",
-  authDomain: "catalogue-ae87f.firebaseapp.com",
-  databaseURL: "https://catalogue-ae87f.firebaseio.com",
-  projectId: "catalogue-ae87f",
-  storageBucket: "catalogue-ae87f.appspot.com",
-  messagingSenderId: "583170444541"
-};
-
-firebase.initializeApp(config);
+firebase.initializeApp(config.firebase);
 
 class SignInScreen extends React.Component {
   

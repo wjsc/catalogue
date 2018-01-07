@@ -1,6 +1,7 @@
 import React from 'react';
 import './RandomTab.css';
 import RandomTabArtist from './RandomTabArtist';
+import {config} from '../../config/default.js';
 import RandomTabAlbum from './RandomTabAlbum';
 import {fetchPaginatedArtists, fetchPaginatedAlbums} from '../../calls';
 
@@ -13,12 +14,11 @@ class RandomTab extends React.Component {
 		};
 	}
 	componentWillMount(){
-		fetchPaginatedArtists(null, 20)
+		fetchPaginatedArtists(null, config.random_tab.artist_limit)
 		.then( artists => this.setState({
 			artists
 		}));
-
-		fetchPaginatedAlbums(null, 20)
+		fetchPaginatedAlbums(null, config.random_tab.album_limit)
 		.then( albums => this.setState({
 			albums
 		}))

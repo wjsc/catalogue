@@ -1,3 +1,4 @@
+import {config} from '../../config/default.js';
 import React from 'react';
 import './Player.css';
 import {playerLink} from '../playerLink';
@@ -36,7 +37,7 @@ class Player extends React.Component {
     trackCurrentTrack(track) {
         // track if played for 30000 ms
         setTimeout(() => this.props.state.tracks[this.props.state.current] && this.props.state.tracks[this.props.state.current] === track 
-                            ? window.trackCurrentTrack(track) : false , 30000);
+                            ? window.trackCurrentTrack(track) : false , config.trackers.track_play_ms);
     }
     componentWillReceiveProps(nextProps){
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
