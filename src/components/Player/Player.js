@@ -34,6 +34,9 @@ class Player extends React.Component {
             this.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
         };
     }
+    componentWillUnmount() {
+        this.element.ontimeupdate = false;
+    }
     trackCurrentTrack(track) {
         // track if played for 30000 ms
         setTimeout(() => this.props.state.tracks[this.props.state.current] && this.props.state.tracks[this.props.state.current] === track 
