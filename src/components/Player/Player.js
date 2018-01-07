@@ -19,6 +19,7 @@ class Player extends React.Component {
         this.state = {
             album: {}
         }
+        this.trackCurrentTrack = this.trackCurrentTrack.bind(this);
     }
     componentDidMount() {
         this.element.onended = () => playerLink.next();
@@ -29,8 +30,13 @@ class Player extends React.Component {
                 fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
                 .then(album => this.setState({ album }))
             );
-            window.trackCurrentTrack(this.props.state.tracks[this.props.state.current])
+            this.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
         };
+    }
+    trackCurrentTrack(track) {
+        // track if played for 30000 ms
+        setTimeout(() => this.props.state.tracks[this.props.state.current] && this.props.state.tracks[this.props.state.current] === track 
+                            ? window.trackCurrentTrack(track) : false , 30000);
     }
     componentWillReceiveProps(nextProps){
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
