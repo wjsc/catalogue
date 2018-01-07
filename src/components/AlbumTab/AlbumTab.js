@@ -20,7 +20,7 @@ class AlbumTab extends React.Component {
 		.then(album => this.setState({album}))
 		.then( () => 
 			{
-			checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.album.tracks.join(','))
+			checkFavorites(this.state.album.tracks.join(','))
 			.then( favorites => this.setState({favorites}));
 			}
 		);

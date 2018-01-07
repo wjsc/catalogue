@@ -25,7 +25,7 @@ class Player extends React.Component {
         this.element.onended = () => playerLink.next();
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
         this.element.onplay = () => {
-            insertHistory('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.state.tracks[this.props.state.current]._id);
+            insertHistory(this.props.state.tracks[this.props.state.current]._id);
             this.state.album._id !== this.props.state.tracks[this.props.state.current].album._id && (
                 fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
                 .then(album => this.setState({ album }))

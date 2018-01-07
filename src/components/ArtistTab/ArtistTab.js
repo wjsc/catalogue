@@ -24,7 +24,7 @@ class ArtistTab extends React.Component {
 		.then(tracks => this.setState({tracks}, this.checkFavorites));
 	}
 	checkFavorites(){
-		return checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.state.tracks.map(t => t._id).join(','))
+		return checkFavorites(this.state.tracks.map(t => t._id).join(','))
 				.then( favorites => this.setState({favorites}));
 	}
 	renderAlbums(){

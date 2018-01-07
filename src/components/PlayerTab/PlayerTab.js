@@ -25,7 +25,7 @@ class PlayerTab extends React.Component {
 		);
 	}
 	setHistory() {
-		fetchHistory('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF')
+		fetchHistory()
 		.then( history => {
 			this.setFavorites(history.map(h => h.track).join(','));
 			fetchTracks(history.map(h => h.track).join(','))
@@ -35,7 +35,7 @@ class PlayerTab extends React.Component {
 		})
 	}
 	setFavorites(tracks) {
-		checkFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', tracks)
+		checkFavorites(tracks)
 		.then( favorites => this.setState({favorites}));
 	}
 	renderTracks(tracks){

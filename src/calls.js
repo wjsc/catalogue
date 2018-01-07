@@ -1,3 +1,5 @@
+import {userLink} from './components/userLink';
+
 export const CDN_URL = process.env.REACT_APP_CDN_URL;
 const API = process.env.REACT_APP_API;
 const ARTIST_API =  API + 'artist/';
@@ -34,12 +36,12 @@ export const searchArtists = (keyword) => get(ARTIST_API+'search/'+keyword).then
 export const searchAlbums = (keyword) => get(ALBUM_API+'search/'+keyword).then(asArray);
 export const searchTracks = (keyword) => get(TRACK_API+'search/'+keyword).then(asArray);
 
-export const fetchFavorites = (user) => get(FAVORITE_API+'user/'+user).then(asArray);
-export const fetchHistory = (user) => get(HISTORY_API+'user/'+user).then(asArray);
+export const fetchFavorites = () => get(FAVORITE_API+'user/'+userLink.getUid()).then(asArray);
+export const fetchHistory = () => get(HISTORY_API+'user/'+userLink.getUid()).then(asArray);
 
-export const insertFavorite = (user, track) => post(FAVORITE_API,{ user, track });
-export const insertHistory = (user, track) => post(HISTORY_API,{ user, track, date: new Date().toISOString() });
+export const insertFavorite = (track) => post(FAVORITE_API,{ user: userLink.getUid(), track });
+export const insertHistory = (track) => post(HISTORY_API,{ user: userLink.getUid(), track, date: new Date().toISOString() });
 
-export const removeFavorite = (user, track) => del(FAVORITE_API,{ user, track } );
+export const removeFavorite = (track) => del(FAVORITE_API,{ user: userLink.getUid(), track } );
 
-export const checkFavorites = (user, tracks) => get(FAVORITE_API, { user, tracks }).then(asArray);
+export const checkFavorites = (tracks) => get(FAVORITE_API, { user: userLink.getUid(), tracks }).then(asArray);

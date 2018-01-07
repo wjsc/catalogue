@@ -16,9 +16,9 @@ class Track extends React.Component {
 	}
 	toggleFavorite(){
 		return this.isFavorited() ? 
-		removeFavorite('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.track._id)
+		removeFavorite(this.props.track._id)
 		.then(res => this.setState( { favorite: false } ))
-		: insertFavorite('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF', this.props.track._id)
+		: insertFavorite(this.props.track._id)
 		.then(res => this.setState( { favorite: true } ));
 	}
 	componentWillReceiveProps(nextProps){

@@ -1,11 +1,13 @@
 {
   "name": "catalogue-client",
   "version": "0.1.0",
-  "author":"wjsc",
+  "author": "wjsc",
   "private": true,
   "dependencies": {
+    "firebase": "^4.8.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-firebaseui": "^1.0.10",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-scripts": "1.0.10"

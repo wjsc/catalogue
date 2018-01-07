@@ -12,7 +12,7 @@ class FavoritesTab extends React.Component {
 		};
 	}
 	componentDidMount(){
-		fetchFavorites('ABCDEABCDEABCDEABCDEABCDEABCDEABCDEF')
+		fetchFavorites()
 		.then( favorites => favorites.map(favorite => favorite.track ))
 		.then( tracks => tracks.join(','))
 		.then( tracks => tracks && fetchTracks(tracks))
