@@ -1,0 +1,28 @@
+.wrapper{
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.wrapper .panel {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wrapper .panel h1{
+    color: #f54865;
+    display: block;
+    text-align: center;
+}
+
+.wrapper .panel .social {
+    display: block;
+}
+.wrapper .panel h2{
+    display: block;
+    color: #f54865;
+}
+
+.wrapper .panel p{
+    display: block;
+}

@@ -2,7 +2,8 @@ import {config} from '../../config/default.js';
 import React from 'react';
 import { FirebaseAuth } from 'react-firebaseui';
 import firebase from 'firebase';
-import './firebaseui-overrides.global.css'; // Import globally.
+import './firebaseui-overrides.global.css';
+import './SignInScreen.css';
 
 // Configure Firebase.
 firebase.initializeApp(config.firebase);
@@ -28,9 +29,22 @@ class SignInScreen extends React.Component {
   
   render() {
       return (
-        <div>
-          <h1>Catalogue Music</h1>
-          <FirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+        <div className="wrapper">
+          <div className="panel">
+            <h1>Catalogue Music</h1>
+            <div className="social">
+              <FirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+            </div>
+          </div>
+          <div className="panel">
+            <h2>Access</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
+            <h2>Artists</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
+            <h2>Technology</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
+            <a href="https://github.com/wjsc" target="_blank">https://github.com/wjsc</a>
+          </div>
         </div>
       );
   }
