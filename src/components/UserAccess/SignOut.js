@@ -6,7 +6,7 @@ class SignOut extends React.Component {
      
     render() {
         return (
-            <Link to="/logout"><span onClick={userLink.signOut}>SignOut</span></Link>
+            <Link to="/"><span onClick={userLink.signOut}>SignOut</span></Link>
         );
     }
   }
