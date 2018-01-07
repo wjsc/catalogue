@@ -2,7 +2,7 @@ import React from 'react';
 import './RandomTab.css';
 import RandomTabArtist from './RandomTabArtist';
 import RandomTabAlbum from './RandomTabAlbum';
-import {fetchArtists, fetchAlbums} from '../../calls';
+import {fetchPaginatedArtists, fetchPaginatedAlbums} from '../../calls';
 
 class RandomTab extends React.Component {
 	constructor(props) {
@@ -13,12 +13,12 @@ class RandomTab extends React.Component {
 		};
 	}
 	componentWillMount(){
-		fetchArtists()
+		fetchPaginatedArtists(null, 20)
 		.then( artists => this.setState({
 			artists
 		}));
 
-		fetchAlbums()
+		fetchPaginatedAlbums(null, 20)
 		.then( albums => this.setState({
 			albums
 		}))

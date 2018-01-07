@@ -19,10 +19,14 @@ const get = (endpoint, params) => fetch(endpoint + queryString(params), {method:
 const post = (endpoint, body) => fetch(endpoint, {method: 'POST', options: options, headers: defaultHeaders, body: JSON.stringify(body)}).then(resjson);
 const del = (endpoint, body) => fetch(endpoint, {method: 'DELETE', options: options, headers: defaultHeaders, body: JSON.stringify(body)}).then(resjson);
 
+// Todo
+export const fetchPaginatedArtists = (artistId, limit = 10) => get(ARTIST_API).then(asArray);
+export const fetchPaginatedAlbums = (albumId, limit = 10) => get(ALBUM_API).then(asArray);
+export const fetchPaginatedTracks = (trackId, limit = 10) => get(TRACK_API).then(asArray);
 
-export const fetchArtists = (artist='') => get(ARTIST_API+artist).then(asArray);
-export const fetchAlbums = (album='') => get(ALBUM_API+album).then(asArray);
-export const fetchTracks = (track='') => get(TRACK_API+track).then(asArray);
+export const fetchArtists = (artists) => artists ? get(ARTIST_API+artists).then(asArray) : Promise.resolve([]);
+export const fetchAlbums = (albums) => albums ? get(ALBUM_API+albums).then(asArray) : Promise.resolve([]);
+export const fetchTracks = (tracks) => tracks ? get(TRACK_API+tracks).then(asArray) : Promise.resolve([]);
 
 export const fetchArtist = (artist) => get(ARTIST_API+artist);
 export const fetchAlbum = (album) => get(ALBUM_API+album);
