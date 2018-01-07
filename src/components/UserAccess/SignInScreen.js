@@ -43,7 +43,7 @@ class SignInScreen extends React.Component {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
             <h2>Technology</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
-            <a href="https://github.com/wjsc" target="_blank">https://github.com/wjsc</a>
+            <a href="https://github.com/wjsc" rel="noopener noreferrer" target="_blank">https://github.com/wjsc</a>
           </div>
         </div>
       );
