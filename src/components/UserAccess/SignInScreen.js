@@ -1,7 +1,8 @@
+import {config} from '../../config/default.js';
 import React from 'react';
 import { FirebaseAuth } from 'react-firebaseui';
 import firebase from 'firebase';
-import {config} from '../../config/default.js';
+import './firebaseui-overrides.global.css'; // Import globally.
 
 // Configure Firebase.
 firebase.initializeApp(config.firebase);
