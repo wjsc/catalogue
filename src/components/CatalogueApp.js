@@ -10,8 +10,8 @@ class CatalogueApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			signedIn: false,
-			uid: false,
+			signedIn: process.env.NODE_ENV === 'development' ? true : false,
+			uid: process.env.NODE_ENV === 'development' ? ''.padStart(28, 'x') : false,
 			status: 'stop', // play | pause | stop
 			tracks: [],
 			current: 0,
