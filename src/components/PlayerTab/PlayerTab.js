@@ -1,8 +1,9 @@
 import React from 'react';
 import './PlayerTab.css';
+import {config} from '../../config/default.js';
 import Track from '../Track';
 import {playerLink} from '../playerLink';
-import {fetchHistory, fetchTracks, checkFavorites} from '../../calls.js';
+import {fetchPaginatedHistory, fetchTracks, checkFavorites} from '../../calls.js';
 
 class PlayerTab extends React.Component {
 	constructor(props) {
@@ -25,7 +26,7 @@ class PlayerTab extends React.Component {
 		);
 	}
 	setHistory() {
-		fetchHistory()
+		fetchPaginatedHistory(0, config.player_tab.history_limit)
 		.then( history => {
 			this.setFavorites(history.map(h => h.track).join(','));
 			fetchTracks(history.map(h => h.track).join(','))

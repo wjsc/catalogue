@@ -20,10 +20,11 @@ const get = (endpoint, params) => fetch(endpoint + queryString(params), {method:
 const post = (endpoint, body) => fetch(endpoint, {method: 'POST', options: options, headers: defaultHeaders, body: JSON.stringify(body)}).then(resjson);
 const del = (endpoint, body) => fetch(endpoint, {method: 'DELETE', options: options, headers: defaultHeaders, body: JSON.stringify(body)}).then(resjson);
 
-// Todo
-export const fetchPaginatedArtists = (artistId, limit = 10) => get(ARTIST_API).then(asArray);
-export const fetchPaginatedAlbums = (albumId, limit = 10) => get(ALBUM_API).then(asArray);
-export const fetchPaginatedTracks = (trackId, limit = 10) => get(TRACK_API).then(asArray);
+export const fetchPaginatedArtists = (offset, limit) => get(ARTIST_API, {offset, limit}).then(asArray);
+export const fetchPaginatedAlbums = (offset, limit) => get(ALBUM_API, {offset, limit}).then(asArray);
+export const fetchPaginatedTracks = (offset, limit) => get(TRACK_API, {offset, limit}).then(asArray);
+export const fetchPaginatedFavorites = (offset, limit) => get(FAVORITE_API+'user/'+userLink.getUid(), {offset, limit}).then(asArray);
+export const fetchPaginatedHistory = (offset, limit) => get(HISTORY_API+'user/'+userLink.getUid(), {offset, limit}).then(asArray);
 
 export const fetchArtists = (artists) => artists ? get(ARTIST_API+artists).then(asArray) : Promise.resolve([]);
 export const fetchAlbums = (albums) => albums ? get(ALBUM_API+albums).then(asArray) : Promise.resolve([]);
@@ -40,9 +41,6 @@ export const fetchTracksByAlbum = (album) => get(TRACK_API+'album/'+album).then(
 export const searchArtists = (keyword) => get(ARTIST_API+'search/'+keyword).then(asArray);
 export const searchAlbums = (keyword) => get(ALBUM_API+'search/'+keyword).then(asArray);
 export const searchTracks = (keyword) => get(TRACK_API+'search/'+keyword).then(asArray);
-
-export const fetchFavorites = () => get(FAVORITE_API+'user/'+userLink.getUid()).then(asArray);
-export const fetchHistory = () => get(HISTORY_API+'user/'+userLink.getUid()).then(asArray);
 
 export const insertFavorite = (track) => post(FAVORITE_API,{ user: userLink.getUid(), track });
 export const insertHistory = (track) => post(HISTORY_API,{ user: userLink.getUid(), track, date: new Date().toISOString() });

@@ -14,11 +14,16 @@ export const config = {
         messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID || 583170444541
     },
     random_tab: {
-        artist_limit: process.env.REACT_APP_ARTIST_LIMIT || 20,
-        album_limit: process.env.REACT_APP_ALBUM_LIMIT || 20
+        artist_limit: 20,
+        album_limit: 20
     },
     artist_tab: {},
     album_tab: {},
-    player_tab: {},
+    player_tab: {
+        history_limit: 20
+    },
+    favorites_tab: {
+        favorites_limit: 30
+    },
     search_tab: {}
 }

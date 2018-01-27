@@ -1,8 +1,9 @@
 import React from 'react';
 import './FavoritesTab.css';
+import {config} from '../../config/default.js';
 import {playerLink} from '../playerLink';
 import Track from '../Track';
-import {fetchFavorites, fetchTracks} from '../../calls.js';
+import {fetchPaginatedFavorites, fetchTracks} from '../../calls.js';
 
 class FavoritesTab extends React.Component {
 	constructor(props) {
@@ -12,7 +13,7 @@ class FavoritesTab extends React.Component {
 		};
 	}
 	componentDidMount(){
-		fetchFavorites()
+		fetchPaginatedFavorites(0, config.favorites_tab.favorites_limit)
 		.then( favorites => favorites.map(favorite => favorite.track ))
 		.then( tracks => tracks.join(','))
 		.then( tracks => tracks && fetchTracks(tracks))
