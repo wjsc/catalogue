@@ -33,9 +33,9 @@ class Track extends React.Component {
 	render(){
 		return (
 			<div className={this.isCurrentTrack()?'current track':'track'} onDoubleClick={() => playerLink.playTrack(this.props.track)}>
-				<i onDoubleClick={(ev) => ev.stopPropagation()} className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(this.props.track)}></i>
-				<i onDoubleClick={(ev) => ev.stopPropagation()} className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(this.props.track)}></i>
-				<i onDoubleClick={(ev) => ev.stopPropagation()} className={this.isFavorited() ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}
+				<i onDoubleClick={ev => ev.stopPropagation()} className="play_track fa fa-play-circle" onClick={() => playerLink.playTrack(this.props.track)}></i>
+				<i onDoubleClick={ev => ev.stopPropagation()} className="add_track fa fa-plus-circle" onClick={() => playerLink.addTrack(this.props.track)}></i>
+				<i onDoubleClick={ev => ev.stopPropagation()} className={this.isFavorited() ? "fav_track fa fa-heart" : "fav_track fa fa-heart-o"}
 					onClick={this.toggleFavorite }></i>
 				{ this.props.showNo ? <div className="track_number">{this.props.track.no}</div> : false}
 				<div className="track_name">
