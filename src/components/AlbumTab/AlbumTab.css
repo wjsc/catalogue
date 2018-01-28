@@ -8,6 +8,23 @@
     padding-top: 20%;
     position: relative;
 }
+.album_tab .banner .cover_container *{
+	/* Disable AlbumCover Click! */
+	pointer-events: none;
+}
+.album_tab .banner .fullscreen_cover_container {
+	background-color: #0c0c0c;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+}
+.album_tab .banner .fullscreen_cover_container .cover_wrapper {
+    text-align: center;
+}
+.album_tab .banner .fullscreen_cover_container .cover_wrapper img {
+	height: 90vh;
+	padding-top: 5vh;
+}
 .album_tab .banner .cover_container .cover{
     position: absolute;
     transform: translate(-50%,-50%);

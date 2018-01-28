@@ -9,10 +9,12 @@ class AlbumTab extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			fullscreenCover: false,
 			album: {},
 			tracks: [],
 			favorites: []
 		};
+		this.toggleFullscreenCover = this.toggleFullscreenCover.bind(this);
 	}
 	componentWillMount(){
 
@@ -30,11 +32,17 @@ class AlbumTab extends React.Component {
 	renderTracks(){
 		return this.state.tracks ? this.state.tracks.map((track)=><Track showNo={true} key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)}/>):false;
 	}
+	toggleFullscreenCover(){
+		this.setState(prevState => ({
+			fullscreenCover: !prevState.fullscreenCover
+		}))
+	}
 	render() {
 		return (
 				<div className="tab album_tab">
 					<div className="banner">
-						<div className="cover_container">
+						<div className={this.state.fullscreenCover ? 'fullscreen_cover_container': 'cover_container'} 
+							onClick={this.toggleFullscreenCover}>
 							<AlbumCover album={this.state.album}/>
 						</div>
 						<div className="details_container">
