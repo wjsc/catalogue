@@ -39,9 +39,6 @@ class ArtistTab extends React.Component {
 							<div className="name">
 								{this.state.artist.name}
 							</div>
-							<div className="extra">
-								{this.state.artist.genre}
-							</div>
 							<div className="play" onClick={() => playerLink.playTracks(this.state.tracks)}>
 								Play
 							</div>

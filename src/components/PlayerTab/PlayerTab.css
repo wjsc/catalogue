@@ -52,3 +52,9 @@
 	display: inline-block;
 	float:right;
 }
+@media (max-width: 800px) {
+	.player_tab .tracks .track {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}

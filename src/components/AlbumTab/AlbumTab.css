@@ -84,3 +84,37 @@
 	display: inline-block;
 	float:right;
 }
+
+@media (max-width: 800px) {
+	.album_tab .banner .cover_container {
+		width: 100vw;
+		height: 100vw;
+		padding-top: 0;
+	}
+	.album_tab .banner .details_container {
+		padding-left: 0px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		display: block;
+		text-align: center;
+	}
+	.album_tab .banner .details_container .name {
+		font-size: 25px;
+	}
+	.album_tab .banner .details_container .play {
+		margin-top: 12px;
+	}
+	.album_tab .tracks .track {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.album_tab .banner .fullscreen_cover_container .cover_wrapper {
+		text-align: center;
+		height: 100vh;
+		margin-top: 10vh;
+	}
+	.album_tab .banner .fullscreen_cover_container .cover_wrapper img {
+        height: 100vw;
+        width: 100vw;
+    }
+}

@@ -105,3 +105,44 @@
     display: inline-block;
     float:right;
 }
+
+@media (max-width: 800px) {
+    .artist_tab .banner {
+        padding-left: 0;
+        text-align: center;
+    }
+    .artist_tab .sub_banner {
+        text-align: center;
+        color: grey;
+    }
+    .artist_tab .albums .album .details .title {
+        color: #f54865;
+        display: block;
+        margin-left: 0;
+        margin-top: 20px;
+        margin-bottom: 6px;
+    }
+    .artist_tab .albums .album .details .year {
+        margin-left: 0;
+        color: grey;
+    }
+    .artist_tab .albums .album {
+        display: block;
+        text-align: center;
+    }
+    .artist_tab .albums .album .cover_container {
+        width: 50vw;
+        height: 50vw;
+        padding-top: 0;
+    }
+    .artist_tab .albums .album .details .tracks {
+        text-align: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: auto;
+        display: block;
+    }
+    .artist_tab .albums .album .details .tracks .track .play_track {
+        margin-left: 0;
+    }
+}

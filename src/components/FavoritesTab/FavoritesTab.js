@@ -28,7 +28,7 @@ class FavoritesTab extends React.Component {
 					<div className="banner">
 						<div className="details_container">
 							<div className="name">
-								FavoritesTab
+								Favorites
 							</div>
 							<div className="play" onClick={() => playerLink.playTracks(this.state.tracks)}>
 								Play

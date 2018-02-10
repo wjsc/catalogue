@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import SidebarElement from './SidebarElement';
-import SignOut from './UserAccess/SignOut';
+import {userLink} from './userLink';
 
 class Sidebar extends React.Component {
 	render() {
@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
 				<Link to="/search"><SidebarElement id="sidebar-search" icon="fa fa-search" text="Search"/></Link>
 				<Link to="/favorites"><SidebarElement id="sidebar-favorites" icon="fa fa-heart" text="Favs"/></Link>
 				<Link to="/player"><SidebarElement id="sidebar-player" icon="fa fa-suitcase" text="Player"/></Link>
-				<SignOut></SignOut>
+				<Link to="/"><SidebarElement onclick={userLink.signOut} id="sidebar-logout" icon="fa fa-sign-out" text="Exit"/></Link>
 			</div>
 		);
 	}

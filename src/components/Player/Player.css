@@ -156,3 +156,25 @@
 .player .current{
 	color: #f54865;
 }
+@media (max-width: 800px) {
+    .player{
+        bottom: 55px;
+        height: 55px;;
+    }
+    .player .player_prev {
+        font-size: inherit;
+        margin-left: 2em;
+    }
+    .player .player_play {
+        font-size: inherit;
+        margin-left: 1em;
+        margin-right: 1em;
+        width: auto
+    }
+    .player .player_next {
+        font-size: inherit;
+    }
+    .player .player_timeline{
+        margin-right: 2em;
+    }
+}

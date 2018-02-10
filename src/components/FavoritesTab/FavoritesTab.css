@@ -50,3 +50,22 @@
 	display: inline-block;
 	float:right;
 }
+@media (max-width: 800px) {
+	.favorites_tab .banner {
+		padding-left: 0px;
+		text-align: center;
+	}
+	.favorites_tab .banner .details_container {
+		display: block;
+	}
+	.favorites_tab .sub_banner {
+		padding: 10px;
+		padding-left: 15px;
+		text-align: center;
+		color: grey;
+	}
+	.favorites_tab .tracks .track {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}

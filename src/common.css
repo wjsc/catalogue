@@ -104,3 +104,45 @@ a{
 .track:hover{
 	background-color: #1c1c1d;
 }
+@media (max-width: 800px) {
+	.sidebar{
+		position: fixed;
+		background-color: #181819;
+		z-index: 3;
+		text-align: center;
+		color:#f7f5f5;
+		bottom: 0;
+		left: 0;
+		height: 55px;
+		width: 100%;
+		padding: 0;
+	}
+	.sidebar .sidebar-element{
+		cursor: pointer;
+		color: #f7f5f5;
+		display: inline-block;
+		padding: 6px 15px 5px;;
+		height: auto;
+	}
+	.sidebar .sidebar-element i {
+		font-size: 17px;
+		padding-bottom: 10px;
+	}
+	.tab{
+		width: 100%;
+		left: 0;
+		margin-bottom: 20%;
+	}
+	.play {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		margin-left: 40%;
+		margin-right: 40%;
+		background-color: #37a037;
+		border-radius: 20px;
+		width: auto;
+		text-transform: uppercase;
+		text-align: center;
+		cursor: pointer;
+	}
+}
