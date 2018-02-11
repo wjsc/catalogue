@@ -55,10 +55,6 @@
 - [x] View history
 - [x] Play history
 
-## DotEnv files docs
-1. https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env
-2. https://github.com/motdotla/dotenv
-
 ## Service Worker
 1. To test the service worker, you need to build the production bundle.
 
