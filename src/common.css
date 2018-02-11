@@ -107,7 +107,7 @@ a{
 @media (max-width: 800px) {
 	.sidebar{
 		position: fixed;
-		background-color: #181819;
+		background-color: #0c0c0c;
 		z-index: 3;
 		text-align: center;
 		color:#f7f5f5;
@@ -134,6 +134,8 @@ a{
 		margin-bottom: 20%;
 	}
 	.play {
+		padding-left: 0px;
+		padding-right: 0px;
 		padding-top: 5px;
 		padding-bottom: 5px;
 		margin-left: 40%;
@@ -144,5 +146,13 @@ a{
 		text-transform: uppercase;
 		text-align: center;
 		cursor: pointer;
+	}
+	.track .track_name {
+		display: inline-block;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		width: 26ex;
+		overflow: hidden;
+		vertical-align: bottom;
 	}
 }

@@ -114,6 +114,7 @@
     .artist_tab .sub_banner {
         text-align: center;
         color: grey;
+        padding-left: 0;
     }
     .artist_tab .albums .album .details .title {
         color: #f54865;

@@ -57,4 +57,7 @@
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+	.player_tab .tracks .track .track_name {
+		width: 30ex;
+	}
 }

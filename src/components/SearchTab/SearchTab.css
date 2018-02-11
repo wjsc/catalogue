@@ -144,3 +144,38 @@
 	display: inline-block;
 	float:right;
 }
+@media (max-width: 800px) {
+	.search_tab .banner {
+		margin: 25px;
+	}
+	.search_tab .banner .search {
+		width: auto;
+		padding: 10px;
+		margin: 0;
+	}
+	.search_tab .all-results {
+		text-align: center;
+	}
+	.search_tab .all-results .artists .title {
+		padding: 0 15px;
+		font-weight: normal;
+	}
+	.search_tab .all-results .artists .results {
+		padding: 0 15px;
+	}
+	.search_tab .all-results .albums .title {
+		padding: 0 15px;
+		font-weight: normal;
+	}
+	.search_tab .all-results .albums .results {
+		padding: 0 15px;
+	}
+	.search_tab .all-results .tracks .title {
+		padding: 0 15px;
+		font-weight: normal;
+	}
+	.search_tab .all-results .tracks .results {
+		text-align: left;
+		padding: 0 15px;
+	}
+}

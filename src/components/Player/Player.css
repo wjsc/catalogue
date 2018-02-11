@@ -158,7 +158,7 @@
 }
 @media (max-width: 800px) {
     .player{
-        bottom: 55px;
+        bottom: 54px;
         height: 55px;;
     }
     .player .player_prev {
@@ -176,5 +176,17 @@
     }
     .player .player_timeline{
         margin-right: 2em;
+    }
+    .player .player_timeline .player_track_container .player_progress {
+        padding: 0 10px;
+    }
+    .player .player_timeline .player_track_container .player_progress .progress-bar-time{
+        display: none;
+    }
+    .player .player_timeline .player_track_container .player_progress .progress-bar-wrapper{
+        height: 2px;
+    }
+    .player .player_timeline .player_track_container .player_progress .progress-bar-wrapper .progress-bar{
+        height: 2px;
     }
 }

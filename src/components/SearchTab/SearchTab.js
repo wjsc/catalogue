@@ -35,13 +35,14 @@ class SearchTab extends React.Component {
 		return this.state.albums ? this.state.albums.map( album =><SearchTabAlbum key={album._id} album={album}/>) : false;
 	}
 	renderTracks(){
+		console.log(this.state.tracks);
 		return this.state.tracks ? this.state.tracks.map( track =><Track showArtist={true} key={track._id} track={track} favorite={this.state.favorites.find(f => f.track===track._id)} />) : false;
 	}
 	render() {
 		return (
 				<div className="tab search_tab">
 					<div className="banner">
-						<input className="search" onKeyPress={this.search} placeholder="Type to find music" pattern=".{3,25}" type="text"/>
+						<input className="search" tabIndex="1" onKeyPress={this.search} placeholder="Type to find music" pattern=".{3,25}" type="text"/>
 					</div>
 					{this.renderResults()}
 				</div>

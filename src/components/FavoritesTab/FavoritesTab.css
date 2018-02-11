@@ -68,4 +68,7 @@
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+	.favorites_tab .tracks .track .track_name{
+		width: 30ex;
+	}
 }
