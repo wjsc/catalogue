@@ -28,14 +28,12 @@
 }
 
 @media (max-width: 800px) {
+    .wrapper{
+        padding-bottom: 10vh;
+    }
     .wrapper .panel {
         width: 100%;
         display: block;
-    }
-    .wrapper .panel h2{
-        text-align: center;
-    }
-    .wrapper .panel p {
         text-align: center;
     }
 }

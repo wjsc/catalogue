@@ -39,11 +39,11 @@ class SignInScreen extends React.Component {
           </div>
           <div className="panel">
             <h2>Access</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
+            <p>Log in with your social network of choice and start playing with zero cost from now and forever.</p>
             <h2>Artists</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
+            <p>We are working to involve the artists and collaborate with them in reaching their audience. We believe in the possibility of a self-sustainable platform and in the commitment between users and musicians.</p>
             <h2>Technology</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus culpa numquam eius sed deserunt enim corporis natus repellendus animi tempora, nemo, quos illo adipisci eos aspernatur magnam beatae odit cupiditate?</p>
+            <p>Our goal is to offer a premium quality service with minimum latency and cutting-edge technology.</p>
             <a href="https://github.com/wjsc" rel="noopener noreferrer" target="_blank">https://github.com/wjsc</a>
           </div>
         </div>

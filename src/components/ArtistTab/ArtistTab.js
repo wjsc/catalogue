@@ -19,6 +19,7 @@ class ArtistTab extends React.Component {
 		fetchArtist(this.props.match.params._id)
 		.then(artist => this.setState({artist}));
 		fetchAlbumsByArtist(this.props.match.params._id)
+		.then(albums => albums.sort((a, b)=> a.year > b.year ? -1 : 1))
 		.then(albums => this.setState({albums}));
 		fetchTracksByArtist(this.props.match.params._id)
 		.then(tracks => this.setState({tracks}, this.checkFavorites));
