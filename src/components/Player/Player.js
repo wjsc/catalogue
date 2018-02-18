@@ -33,6 +33,8 @@ class Player extends React.Component {
             );
             this.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
         };
+        this.element.load();
+        this.element.play();
     }
     componentWillUnmount() {
         this.element.ontimeupdate = false;
@@ -47,7 +49,7 @@ class Player extends React.Component {
         nextProps.state.status !== this.props.state.status && (nextProps.state.status === 'play' ? this.element.play() : this.element.pause());
     }
     renderAudio(currentTrack){
-        return <audio autoPlay ref={(element) => { this.element = element }}><source key={currentTrack._id} src={CDN_URL+currentTrack.audio} type="audio/mpeg"/></audio>;
+        return <audio ref={(element) => { this.element = element }}><source key={currentTrack._id} src={CDN_URL+currentTrack.audio} type="audio/mpeg"/></audio>;
     }
     render() {
         const currentTrack = this.props.state.tracks[this.props.state.current];
