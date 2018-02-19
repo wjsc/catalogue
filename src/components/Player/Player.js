@@ -21,6 +21,8 @@ class Player extends React.Component {
             album: {}
         }
         this.trackCurrentTrack = this.trackCurrentTrack.bind(this);
+        this.startPlaying = this.startPlaying.bind(this);
+        
     }
     componentDidMount() {
         this.element.onended = () => playerLink.next();
@@ -33,6 +35,9 @@ class Player extends React.Component {
             );
             this.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
         };
+        this.startPlaying();
+    }
+    startPlaying(){
         this.element.load();
         this.element.play();
     }
@@ -45,7 +50,7 @@ class Player extends React.Component {
                             ? window.trackCurrentTrack(track) : false , config.trackers.track_play_ms);
     }
     componentWillReceiveProps(nextProps){
-        nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.element.load();
+        nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.startPlaying();
         nextProps.state.status !== this.props.state.status && (nextProps.state.status === 'play' ? this.element.play() : this.element.pause());
     }
     renderAudio(currentTrack){
