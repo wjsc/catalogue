@@ -5,6 +5,7 @@ import Player from './Player/Player';
 import SignInScreen from './UserAccess/SignInScreen';
 import {userLink} from './userLink';
 import {playerLink} from './playerLink';
+import {mediaSessionLink} from './mediaSessionLink';
 
 class CatalogueApp extends React.Component {
 	constructor(props) {
@@ -12,12 +13,13 @@ class CatalogueApp extends React.Component {
 		this.state = {
 			signedIn: process.env.NODE_ENV === 'development' ? true : false,
 			uid: process.env.NODE_ENV === 'development' ? ''.padStart(28, 'x') : false,
-			status: 'stop', // play | pause | stop
+			status: 'stop',
 			tracks: [],
 			current: 0,
 			progress: 0
 		};
 		playerLink.connect(this);
+		mediaSessionLink.init();
 		userLink.connect(this);
 	}
 	signInSuccessCallback(result) {

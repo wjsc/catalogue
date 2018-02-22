@@ -2,6 +2,7 @@ import {config} from '../../config/default.js';
 import React from 'react';
 import './Player.css';
 import {playerLink} from '../playerLink';
+import {mediaSessionLink} from '../mediaSessionLink';
 import {formatDuration} from '../../lib'
 import {fetchAlbum, insertHistory} from '../../calls'
 import {CDN_URL} from '../../calls'
@@ -22,6 +23,8 @@ class Player extends React.Component {
         }
         this.trackCurrentTrack = this.trackCurrentTrack.bind(this);
         this.startPlaying = this.startPlaying.bind(this);
+        this.fetchAlbum = this.fetchAlbum.bind(this);
+        this.changeMediaSession = this.changeMediaSession.bind(this);
         
     }
     componentDidMount() {
@@ -29,13 +32,21 @@ class Player extends React.Component {
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
         this.element.onplay = () => {
             insertHistory(this.props.state.tracks[this.props.state.current]._id);
-            this.state.album._id !== this.props.state.tracks[this.props.state.current].album._id && (
-                fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
-                .then(album => this.setState({ album }))
-            );
+            this.fetchAlbum()
+            .then(() => this.changeMediaSession());
             this.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
         };
         this.startPlaying();
+    }
+    fetchAlbum(){
+        if(this.state.album._id !== this.props.state.tracks[this.props.state.current].album._id) {
+            return fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
+                    .then(album => this.setState({ album }));
+        }
+        return Promise.resolve();
+    }
+    changeMediaSession(){
+        mediaSessionLink.changeMediaSession(this.props.state.tracks[this.props.state.current], this.state.album);
     }
     startPlaying(){
         this.element.load();
@@ -45,7 +56,6 @@ class Player extends React.Component {
         this.element.ontimeupdate = false;
     }
     trackCurrentTrack(track) {
-        // track if played for 30000 ms
         setTimeout(() => this.props.state.tracks[this.props.state.current] && this.props.state.tracks[this.props.state.current] === track 
                             ? window.trackCurrentTrack(track) : false , config.trackers.track_play_ms);
     }
