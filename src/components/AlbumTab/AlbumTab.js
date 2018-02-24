@@ -1,5 +1,6 @@
 import React from 'react';
 import './AlbumTab.css';
+import {Translate} from '../lang/Translate';
 import {playerLink} from '../playerLink';
 import Track from '../Track';
 import AlbumCover from '../AlbumCover';
@@ -52,9 +53,8 @@ class AlbumTab extends React.Component {
 							<div className="name">
 								{this.state.album.title}
 							</div>
-							<div className="play play_album" 
-								onClick={() => playerLink.playTracks(this.state.tracks)}>
-								Play
+							<div className="play play_album" onClick={() => playerLink.playTracks(this.state.tracks)}>
+								<Translate word='PLAY'/>
 							</div>
 						</div>
 					</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './FavoritesTab.css';
+import {Translate} from '../lang/Translate';
 import {config} from '../../config/default.js';
 import {playerLink} from '../playerLink';
 import Track from '../Track';
@@ -28,15 +29,15 @@ class FavoritesTab extends React.Component {
 					<div className="banner">
 						<div className="details_container">
 							<div className="name">
-								Favorites
+								<Translate word='FAVORITES'/>
 							</div>
 							<div className="play" onClick={() => playerLink.playTracks(this.state.tracks)}>
-								Play
+								<Translate word='PLAY'/>
 							</div>
 						</div>
 					</div>
 					<div className="sub_banner">
-						{this.state.tracks.length} tracks in Favorites
+						{this.state.tracks.length} <Translate word='TRACKS_FAVORITED'/>
 					</div>
 					<div className="tracks">
 						{this.renderTracks()}

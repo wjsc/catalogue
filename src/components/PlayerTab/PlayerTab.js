@@ -1,5 +1,6 @@
 import React from 'react';
 import './PlayerTab.css';
+import {Translate} from '../lang/Translate';
 import {config} from '../../config/default.js';
 import Track from '../Track';
 import {playerLink} from '../playerLink';
@@ -46,8 +47,8 @@ class PlayerTab extends React.Component {
 		return (
 				<div className="tab player_tab">
 					<div className="views">
-						<div className={this.state.view==='history'?'active':''} onClick={this.setHistory}>History</div>
-						<div className={this.state.view==='next'?'active':''} onClick={this.setPlayerTracks}>Next</div>
+						<div className={this.state.view==='history'?'active':''} onClick={this.setHistory}><Translate word='PLAYER_HISTORY'/></div>
+						<div className={this.state.view==='next'?'active':''} onClick={this.setPlayerTracks}><Translate word='PLAYER_NEXT'/></div>
 					</div>
 					<div className="tracks">
 						{this.renderTracks(this.state.tracks)}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchTab.css';
+import {translate} from '../lang/Translate';
 import SearchTabArtist from './SearchTabArtist';
 import SearchTabAlbum from './SearchTabAlbum';
 import Track from '../Track';
@@ -42,7 +43,7 @@ class SearchTab extends React.Component {
 		return (
 				<div className="tab search_tab">
 					<div className="banner">
-						<input className="search" tabIndex="1" onKeyPress={this.search} placeholder="Type to find music" pattern=".{3,25}" type="text"/>
+						<input className="search" tabIndex="1" onKeyPress={this.search} placeholder={translate('SEARCH_INPUT')} pattern=".{3,25}" type="text"/>
 					</div>
 					{this.renderResults()}
 				</div>

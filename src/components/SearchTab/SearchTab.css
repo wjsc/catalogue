@@ -1,14 +1,9 @@
 .search_tab{
 }
 
-.search_tab .banner{
-	background-color: #0c0c0c;
-	margin-bottom: 30px;
-}
-
 .search_tab .banner .search{
     padding: 10px;
-    width: 50%;
+    width: 70%;
     border-radius: 5px;
     border: none;
     background-color: #121314;
@@ -17,6 +12,11 @@
     margin-bottom: 25px;
 	margin-left: 30px;
 	margin-top: 30px;
+	margin-right: 30px;
+}
+
+.search_tab .banner .search:focus{
+    outline: none;
 }
 .search_tab .all-results .title{
 	font-weight: bold;
@@ -145,12 +145,9 @@
 	float:right;
 }
 @media (max-width: 800px) {
-	.search_tab .banner {
-		margin: 25px;
-	}
 	.search_tab .banner .search {
-		width: auto;
-		padding: 10px;
+		width: 100vw;
+		padding: 15px;
 		margin: 0;
 	}
 	.search_tab .all-results {

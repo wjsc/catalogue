@@ -1,6 +1,7 @@
 import React from 'react';
 import './RandomTab.css';
 import {config} from '../../config/default.js';
+import {Translate} from '../lang/Translate';
 import RandomTabArtist from './RandomTabArtist';
 import RandomTabAlbum from './RandomTabAlbum';
 import {fetchPaginatedArtists, fetchPaginatedAlbums} from '../../calls';
@@ -34,13 +35,13 @@ class RandomTab extends React.Component {
 				<div className="tab random_tab">
 					<div className="title"></div>
 					<div className="albums">
-						<div className="title">Albums</div>
+						<div className="title"><Translate word='ALBUMS'/></div>
 						<div className="results">
 							{this.renderAlbums()}
 						</div>
 					</div>
 					<div className="artists">
-						<div className="title">Artists</div>
+						<div className="title"><Translate word='ARTISTS'/></div>
 						<div className="results">
 							{this.renderArtists()}
 						</div>

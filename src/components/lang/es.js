@@ -1,0 +1,23 @@
+export default {
+    APP_NAME: 'Catalogue Music',
+    FIRST_TITLE : 'Acceso',
+    FIRST_PARAGRAPH : 'Ingresá con tu red social preferida y escuchá sin límites ahora mismo y por siempre.',
+    SECOND_TITLE : 'Artistas',
+    SECOND_PARAGRAPH : 'Estamos trabajando para involucrar a los artistas y ayudarlos a llegar a su audiencia. Creemos en la posibilidad de una plataforma auto-sustentable y en el compromiso mutuo entre usuarios y artistas.',
+    THIRD_TITLE : 'Tecnología',
+    THIRD_PARAGRAPH : 'Nuestro objetivo es ofrecer un servicio de calidad, con latencia mínima y la última tecnología.',
+    ARTISTS: 'Artistas',
+    ALBUMS: 'Álbums',
+    HOME: 'Inicio',
+    SEARCH: 'Buscar',
+    FAVORITES_SHORT: 'Favs',
+    PLAYER: 'Player',
+    EXIT: 'Salir',
+    PLAY: 'Play',
+    ALBUMS_INDEXED: 'álbum/s en Catalogue',
+    SEARCH_INPUT: 'Escribe para buscar música',
+    PLAYER_HISTORY: 'Historial',
+    PLAYER_NEXT: 'Próximo',
+    FAVORITES: 'Favoritos',
+    TRACKS_FAVORITED: 'canciones en Favoritos'
+}

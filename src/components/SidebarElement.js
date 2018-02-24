@@ -5,7 +5,7 @@ class SidebarElement extends React.Component {
 		return (
 			<div onClick={this.props.onclick} className="sidebar-element" id={this.props.id}>
 				<i className={this.props.icon}></i>
-				<span>{this.props.text}</span>
+				<span>{this.props.children}</span>
 			</div>
 		);
 	}

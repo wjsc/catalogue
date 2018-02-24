@@ -1,5 +1,6 @@
 import React from 'react';
 import './ArtistTab.css';
+import {Translate} from '../lang/Translate';
 import {playerLink} from '../playerLink';
 import ArtistTabAlbum from './ArtistTabAlbum';
 import {fetchArtist, fetchAlbumsByArtist, fetchTracksByArtist, checkFavorites} from '../../calls.js';
@@ -41,12 +42,12 @@ class ArtistTab extends React.Component {
 								{this.state.artist.name}
 							</div>
 							<div className="play" onClick={() => playerLink.playTracks(this.state.tracks)}>
-								Play
+								<Translate word='PLAY'/>
 							</div>
 						</div>
 					</div>
 					<div className="sub_banner">
-						{this.state.albums ? this.state.albums.length : 0} albums indexed
+						{this.state.albums ? this.state.albums.length : 0} <Translate word='ALBUMS_INDEXED'/>
 					</div>
 					<div className="albums">
 						{this.renderAlbums()}
