@@ -105,8 +105,8 @@
     }
     .random_tab .artists .results .artist {
         margin: 1%;
-        width: 20%;
-        padding-top: 20%;
+        width: 30%;
+        padding-top: 30%;
     }
     .random_tab .artists .results .artist .placeholder {
         font-size: 34px;
@@ -121,7 +121,7 @@
         font-size: 1.5em;
     }
     .random_tab .albums .results .cover_wrapper {
-        width: 20%;
+        width: 30%;
         padding: 1%;
     }
 }
