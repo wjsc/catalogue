@@ -3,11 +3,11 @@ import {config} from './config/default.js';
 
 export const CDN_URL = config.cdn_url;
 const API = config.api_url;
-const ARTIST_API =  API + 'artist/';
-const ALBUM_API = API + 'album/';
-const TRACK_API = API + 'track/';
-const FAVORITE_API = API + 'favorite/';
-const HISTORY_API = API + 'history/';
+const ARTIST_API =  API + 'a/artist/';
+const ALBUM_API = API + 'a/album/';
+const TRACK_API = API + 'a/track/';
+const FAVORITE_API = API + 'b/favorite/';
+const HISTORY_API = API + 'b/history/';
 
 const resjson = res => res.json();
 const asArray = obj => Array.isArray(obj) ? obj : [obj];
