@@ -1,8 +1,9 @@
-import {config} from '../../config/default.js';
 import React from 'react';
 import './Player.css';
+import {config} from '../../config/default.js';
 import {playerLink} from '../playerLink';
 import {mediaSessionLink} from '../mediaSessionLink';
+import {analyticsLink} from '../analyticsLink';
 import {formatDuration} from '../../lib'
 import {fetchAlbum, insertHistory} from '../../calls'
 import {CDN_URL} from '../../calls'
@@ -21,32 +22,36 @@ class Player extends React.Component {
         this.state = {
             album: {}
         }
-        this.trackCurrentTrack = this.trackCurrentTrack.bind(this);
         this.startPlaying = this.startPlaying.bind(this);
         this.fetchAlbum = this.fetchAlbum.bind(this);
-        this.changeMediaSession = this.changeMediaSession.bind(this);
+        this.collectIfStillPlaying = this.collectIfStillPlaying.bind(this);
         
     }
     componentDidMount() {
         this.element.onended = () => playerLink.next();
         this.element.ontimeupdate = () => playerLink.progressUpdate(this.element.currentTime);
         this.element.onplay = () => {
-            insertHistory(this.props.state.tracks[this.props.state.current]._id);
-            this.fetchAlbum()
-            .then(() => this.changeMediaSession());
-            this.trackCurrentTrack(this.props.state.tracks[this.props.state.current]);
+            const currentTrack = this.props.state.tracks[this.props.state.current];
+            insertHistory(currentTrack._id);
+            this.fetchAlbum(currentTrack)
+                .then(() => mediaSessionLink.changeMediaSession(currentTrack, this.state.album));
+            this.collectIfStillPlaying(currentTrack);
         };
         this.startPlaying();
     }
-    fetchAlbum(){
-        if(this.state.album._id !== this.props.state.tracks[this.props.state.current].album._id) {
-            return fetchAlbum(this.props.state.tracks[this.props.state.current].album._id)
+    fetchAlbum(currentTrack){
+        if(this.state.album._id !== currentTrack.album._id) {
+            return fetchAlbum(currentTrack.album._id)
                     .then(album => this.setState({ album }));
         }
         return Promise.resolve();
     }
-    changeMediaSession(){
-        mediaSessionLink.changeMediaSession(this.props.state.tracks[this.props.state.current], this.state.album);
+    collectIfStillPlaying(currentTrack){
+        setTimeout(() => {
+            this.props.state.status === 'play'
+            && currentTrack._id === this.props.state.tracks[this.props.state.current]._id
+            && analyticsLink.collect(currentTrack)
+        }, config.trackers.track_play_ms);
     }
     startPlaying(){
         this.element.load();
@@ -54,10 +59,6 @@ class Player extends React.Component {
     }
     componentWillUnmount() {
         this.element.ontimeupdate = false;
-    }
-    trackCurrentTrack(track) {
-        setTimeout(() => this.props.state.tracks[this.props.state.current] && this.props.state.tracks[this.props.state.current] === track 
-                            ? window.trackCurrentTrack(track) : false , config.trackers.track_play_ms);
     }
     componentWillReceiveProps(nextProps){
         nextProps.state.tracks[nextProps.state.current] !== this.props.state.tracks[this.props.state.current] && this.startPlaying();

@@ -3,7 +3,7 @@ export const config = {
     api_url: process.env.REACT_APP_API,
     trackers:{
         google_analytics: process.env.REACT_APP_GOOGLE_ANALYTICS || "UA-XXXXXXX-1",
-        track_play_ms: process.env.REACT_APP_API || 30000
+        track_play_ms: process.env.REACT_MILISECONDS_PLAY || 30000
     },
     firebase:{
         apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "AIzaSyBa9gaXmOAt5beEjWVnsZwPCSFu59Ox5pE",

@@ -5,6 +5,7 @@ import Player from './Player/Player';
 import SignInScreen from './UserAccess/SignInScreen';
 import {userLink} from './userLink';
 import {playerLink} from './playerLink';
+import {analyticsLink} from './analyticsLink';
 import {mediaSessionLink} from './mediaSessionLink';
 
 class CatalogueApp extends React.Component {
@@ -20,6 +21,7 @@ class CatalogueApp extends React.Component {
 		};
 		playerLink.connect(this);
 		mediaSessionLink.init();
+		analyticsLink.init();
 		userLink.connect(this);
 	}
 	signInSuccessCallback(result) {
