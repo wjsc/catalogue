@@ -8,7 +8,13 @@ export const analyticsLink = {
           'custom_map': {'dimension1': 'artist', 'dimension2': 'track'}
         });
         window.onpopstate = ev => {
-          gtag('config', 'UA-111696291-1', {'page_path': window.location.pathname + window.location.hash });
+          gtag('config', 'UA-111696291-1', {
+              'page_path': window.location.pathname + window.location.hash,
+              'custom_map': {
+                  'dimension1': 'artist', 
+                  'dimension2': 'track'
+              }
+            });
         };
     },
     collect: (track) => {
