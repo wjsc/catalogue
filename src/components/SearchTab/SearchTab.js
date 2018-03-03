@@ -24,7 +24,7 @@ class SearchTab extends React.Component {
 			searchArtists(ev.target.value).then( artists => this.setState({artists}));
 			searchAlbums(ev.target.value).then( albums => this.setState({albums}));
 			searchTracks(ev.target.value).then( tracks => this.setState({tracks}))
-			.then(() => this.state.tracks && checkFavorites(this.state.tracks.map(t => t._id).join(','))
+			.then(() => this.state.tracks.length && checkFavorites(this.state.tracks.map(t => t._id).join(','))
 			.then( favorites => this.setState({favorites})))
 			this.setState({searched: true});
 		}
