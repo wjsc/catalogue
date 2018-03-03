@@ -37,8 +37,9 @@ class PlayerTab extends React.Component {
 		})
 	}
 	setFavorites(tracks) {
-		checkFavorites(tracks)
-		.then( favorites => this.setState({favorites}));
+		return tracks.length
+				&& checkFavorites(tracks)
+				.then( favorites => this.setState({favorites}));
 	}
 	renderTracks(tracks){
 		return tracks ? tracks.map((track)=><Track key={track.date || track._id} track={track} showArtist={true} favorite={this.state.favorites.find(f => f.track===track._id)}/>) : false;
