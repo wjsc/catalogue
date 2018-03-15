@@ -44,13 +44,17 @@ workflows:
   version: 2
   my_workflow:
     jobs:
-      - build:
+      - build
         filters:
+          branches:
+            only: master
           tags:
             only: /^v.*/
       - release:
           requires:
             - build
           filters:
+            branches:
+              only: master
             tags:
               only: /^v.*/
