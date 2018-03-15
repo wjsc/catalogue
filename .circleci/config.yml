@@ -45,6 +45,9 @@ workflows:
   my_workflow:
     jobs:
       - build
+        filters:
+          tags:
+            only: /^v.*/
       - release:
           requires:
             - build
