@@ -1,14 +1,8 @@
 version: 2
 jobs:
-  release:
+  build:
     docker:
       - image: circleci/node:8.9.0
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
     working_directory: ~/repo
 
     steps:
@@ -30,9 +24,27 @@ jobs:
         
       # run build!
       - run: yarn build
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - ./*
+  release:
+    docker:
+      - image: circleci/node:8.9.0
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ~/repo
       # Create TarGz
       - run: cd ./build && tar -zcf ../build.tar.gz . && cd ../
       # Publish to github
       - run: wget https://github.com/tcnksm/ghr/releases/download/v0.5.2/ghr_v0.5.2_linux_amd64.zip && unzip ghr_v0.5.2_linux_amd64.zip
       - run: ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME $VERSION ./build.tar.gz
-
+workflows:
+  version: 2
+  my_workflow:
+    jobs:
+      - build
+      - release:
+          requires:
+            - build
