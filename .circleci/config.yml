@@ -30,5 +30,4 @@ jobs:
         
       # run build!
       - run: yarn build
-
-
+      - run: cd ~/repo/build/ && tar -zcvf $CIRCLE_ARTIFACTS/build.tar.gz .
