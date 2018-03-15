@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  release:
     docker:
       - image: circleci/node:8.9.0
       
@@ -30,4 +30,9 @@ jobs:
         
       # run build!
       - run: yarn build
-      - run: yarn release
+      # Create TarGz
+      - run: cd ./build && tar -zcf ../build.tar.gz . && cd ../
+      # Publish to github
+      - run: wget https://github.com/tcnksm/ghr/releases/download/v0.5.2/ghr_v0.5.2_linux_amd64.zip && unzip ghr_v0.5.2_linux_amd64.zip
+      - run: ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME $VERSION ./build.tar.gz
+
