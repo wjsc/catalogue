@@ -23,7 +23,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run build!
-      - run: yarn build
+      - run: export REACT_APP_API="https://catalogue.cf/api/" && export REACT_APP_CDN_URL="https://catalogue.cf/lib/" && yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:
