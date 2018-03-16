@@ -42,12 +42,12 @@ jobs:
       - run: ./ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME $CIRCLE_TAG ./build.tar.gz
 workflows:
   version: 2
-  my_workflow:
+  tagged-build:
     jobs:
       - build:
-        filters:
+          filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^v.*/
       - release:
@@ -55,6 +55,6 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^v.*/
