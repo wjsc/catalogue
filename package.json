@@ -4,6 +4,8 @@
   "author": "wjsc",
   "private": true,
   "dependencies": {
+    "bugsnag-js": "^4.4.0",
+    "bugsnag-react": "^1.0.1",
     "firebase": "^4.8.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
