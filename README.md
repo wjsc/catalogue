@@ -63,3 +63,6 @@
 2. Execute npm run build
 3. Install serve : npm install -g serve
 4. Serve the static builded files: serve -s build
+
+
+-- This is a commit from an MCP server
