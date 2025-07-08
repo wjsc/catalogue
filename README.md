@@ -65,4 +65,4 @@
 4. Serve the static builded files: serve -s build
 
 
--- This is a commit from an MCP server
+-- This is a merge commit from an MCP server
